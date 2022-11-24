@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_navigation);
-/*
+
         navigationView = findViewById(R.id.bottomNavigationView);
-        getSupportFragmentManager().beginTransaction().replace(R.id.Suggestions, new TirageFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new TirageFragment()).commit();
         navigationView.setSelectedItemId(R.id.Suggestions);
 
 
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.Suggestions,fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
                 return true;
             }
         });
-*/
+
     }
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
