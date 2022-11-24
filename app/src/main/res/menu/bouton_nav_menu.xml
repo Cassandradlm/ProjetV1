@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Suggestions"
+    <item
+        android:id="@+id/Suggestions"
         android:icon="@drawable/ic_baseline_camera_roll_24"
-        android:id="@+id/Suggestions"/>
-    <item android:title="Films aimés"
+        android:title="Suggestions" />
+    <item
+        android:id="@+id/Films_aimes"
         android:icon="@drawable/ic_baseline_thumb_up_24"
-        android:id="@+id/Films_aimes"/>
-    <item android:title="Déja vus"
+        android:title="Films aimés" />
+    <item
+        android:id="@+id/Deja_vus"
         android:icon="@drawable/ic_baseline_remove_red_eye_24"
-        android:id="@+id/Deja_vus"/>
+        android:title="Déja vus" />
     <item
         android:id="@+id/categorie"
         android:icon="@drawable/ic_baseline_view_headline_24"
         android:title="Catégories" />
-    <item android:title="Recherche"
+    <item
+        android:id="@+id/recherche"
         android:icon="@drawable/ic_baseline_search_24"
-        android:id="@+id/recherche"/>
+        android:title="Recherche" />
 </menu>
