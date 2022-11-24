@@ -22,7 +22,7 @@
         android:layout_height="335dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="208dp"
-        android:text="Bienvenue sur Filmify ! \nCette application va vous aider à choisir un film à regarder.\nVous allez être amené à choisir les catégories de film qui vous intéressent. \nUne liste de film vous sera ensuite proposer. Vous pourrez lire le résumé et de quand date le film. "
+        android:text="Bienvenue sur Filmify ! \nCette application va vous aider à choisir un film à regarder.\nVous allez être amené à choisir les catégories de film qui vous intéressent. \nUne liste de film vous sera ensuite proposer. Vous pourrez lire le résumé et de quand date le film. \n"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
