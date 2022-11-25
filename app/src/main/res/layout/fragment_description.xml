@@ -7,13 +7,19 @@
     android:background="#DCDCDC"
     tools:context=".DescriptionFragment">
 
+
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="329dp"
         android:layout_height="636dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="20dp">
+
+
 
         <ImageButton
             android:id="@+id/imageButton"

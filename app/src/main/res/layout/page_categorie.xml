@@ -38,7 +38,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -75,7 +76,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -127,7 +129,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -170,7 +173,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -221,7 +225,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -260,7 +265,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -311,7 +317,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -350,7 +357,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -401,7 +409,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -440,7 +449,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -491,7 +501,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -530,7 +541,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -580,7 +592,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -619,7 +632,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
@@ -670,7 +684,8 @@
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
                     android:background="#FFFFFF"
-                    app:cardBackgroundColor="#FFFFFF">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
