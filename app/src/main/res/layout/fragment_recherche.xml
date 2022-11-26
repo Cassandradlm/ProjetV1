@@ -37,81 +37,95 @@
                 android:layout_height="match_parent"
                 android:background="#F8F7F7"
                 android:backgroundTint="#F8F7F7"
-                android:maxHeight="150dp"
+                android:maxHeight="200dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:paddingBottom="5dp">
 
                 <ImageView
-                    android:id="@+id/I_film1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="12dp"
+                    android:id="@+id/I_filmrecherche"
+                    android:layout_width="147dp"
+                    android:layout_height="152dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/T_titre"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.003"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.127"
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/T_titre"
+                    android:id="@+id/T_titrerecherche"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="23dp"
                     android:text="Titre"
                     android:textColor="#000000"
-                    android:textSize="34sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/T_annee"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.082"
+                    app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.121" />
+                    app:layout_constraintVertical_bias="0.062" />
 
                 <TextView
-                    android:id="@+id/T_description"
+                    android:id="@+id/T_descriptionrecherche"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="163dp"
+                    android:layout_marginStart="14dp"
                     android:text="Description"
                     android:textColor="#020202"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.77" />
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
+                    app:layout_constraintTop_toBottomOf="@+id/T_titrerecherche"
+                    app:layout_constraintVertical_bias="0.111" />
 
                 <TextView
-                    android:id="@+id/T_annee"
+                    android:id="@+id/T_anneerecherche"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="102dp"
+                    android:layout_marginTop="6dp"
                     android:text="Année"
                     android:textColor="#050505"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/T_titre"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/I_filmrecherche"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/T_duree"
+                    android:id="@+id/T_dureerecherche"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Durée"
                     android:textColor="#020202"
-                    app:layout_constraintBottom_toTopOf="@+id/T_description"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.162"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
-                    app:layout_constraintTop_toBottomOf="@+id/T_titre" />
+                    app:layout_constraintHorizontal_bias="0.108"
+                    app:layout_constraintStart_toEndOf="@+id/T_anneerecherche"
+                    app:layout_constraintTop_toBottomOf="@+id/I_filmrecherche"
+                    app:layout_constraintVertical_bias="0.666" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_dislike"
+                    android:layout_width="56dp"
+                    android:layout_height="49dp"
+                    android:backgroundTint="#F8F7F7"
+                    android:rotationX="171"
+                    android:src="@drawable/ic_baseline_thumb_up_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton_dejavu"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <ImageButton
                     android:id="@+id/imageButton_like"
@@ -119,33 +133,25 @@
                     android:layout_height="44dp"
                     android:backgroundTint="#F8F7F7"
                     android:src="@drawable/ic_baseline_thumb_up_24"
-                    app:layout_constraintBottom_toTopOf="@+id/imageButton_dejavu"
-                    app:layout_constraintEnd_toStartOf="@+id/I_film1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.967" />
 
                 <ImageButton
                     android:id="@+id/imageButton_dejavu"
-                    android:layout_width="54dp"
-                    android:layout_height="43dp"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
                     android:backgroundTint="#F8F7F7"
                     android:src="@drawable/ic_baseline_remove_red_eye_24"
-                    app:layout_constraintBottom_toTopOf="@+id/imageButton_dislike"
-                    app:layout_constraintEnd_toStartOf="@+id/I_film1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageButton_like" />
-
-                <ImageButton
-                    android:id="@+id/imageButton_dislike"
-                    android:layout_width="57dp"
-                    android:layout_height="53dp"
-                    android:backgroundTint="#F8F7F7"
-                    android:rotationX="171"
-                    android:src="@drawable/ic_baseline_thumb_up_24"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/I_film1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageButton_dejavu" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton_like"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.966" />
 
                 <ImageButton
                     android:id="@+id/imageButton_fleche"

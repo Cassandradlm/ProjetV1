@@ -4,36 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF">
+    android:background="#A4161A"
+    android:backgroundTint="#A4161A">
 
-    <TextView
-        android:id="@+id/T_bienvenue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenue !"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="64dp" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="319dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#660708"
+        app:cardCornerRadius="20dp"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="40dp">
 
-    <TextView
-        android:id="@+id/T_explication"
-        android:layout_width="314dp"
-        android:layout_height="335dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="208dp"
-        android:text="Bienvenue sur Filmify ! \nCette application va vous aider à choisir un film à regarder.\nVous allez être amené à choisir les catégories de film qui vous intéressent. \nUne liste de film vous sera ensuite proposer. Vous pourrez lire le résumé et de quand date le film. \n"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="303dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/T_bienvenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenue !"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                tools:layout_editor_absoluteX="79dp"
+                tools:layout_editor_absoluteY="2dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="375dp"
+        android:layout_height="505dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="20dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="125dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="504dp">
+
+            <TextView
+                android:id="@+id/T_explication"
+                android:layout_width="353dp"
+                android:layout_height="483dp"
+                android:text="Bienvenue sur Filmify ! \n\nCette application va vous aider à choisir un film à regarder.\n\nVous allez être amené à choisir les catégories de film qui vous intéressent. \n\nUne liste de film vous sera ensuite proposer. Vous pourrez lire le résumé et les différentes informations du film. \n\nVous pourrez enregistrer les films dans vos listes de films aimés, déjà vus ou que vous ne souhaitez pas regarder.\n\nUn mene vous permettra de retrouver ces différentes listes. \n\nA vous de jouer !"
+                android:textColor="#161A1D"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="12dp"
+                tools:layout_editor_absoluteY="14dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/button_demarrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#660708"
         android:text="Démarrer"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="579dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="658dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

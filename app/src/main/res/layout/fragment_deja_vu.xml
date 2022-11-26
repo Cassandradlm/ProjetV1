@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4161A"
+    android:backgroundTint="#A4161A"
     tools:context=".DejaVuFragment">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#DCDCDC"
+        android:background="#A4161A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,83 +24,67 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="199dp"
                 android:background="#F8F7F7"
                 android:backgroundTint="#F8F7F7"
-                android:maxHeight="150dp"
+                android:maxHeight="200dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:paddingBottom="5dp">
 
                 <ImageView
-                    android:id="@+id/I_film1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="12dp"
+                    android:id="@+id/I_filmdejavu"
+                    android:layout_width="147dp"
+                    android:layout_height="152dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/T_titre"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.007"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.127"
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/T_titre"
+                    android:id="@+id/T_descriptiondejavu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="23dp"
-                    android:text="Titre"
-                    android:textColor="#000000"
-                    android:textSize="34sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/T_annee"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.121" />
-
-                <TextView
-                    android:id="@+id/T_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="163dp"
                     android:text="Description"
                     android:textColor="#020202"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
+                    app:layout_constraintHorizontal_bias="0.129"
+                    app:layout_constraintStart_toEndOf="@+id/I_filmdejavu"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.77" />
+                    app:layout_constraintVertical_bias="0.416" />
 
                 <TextView
-                    android:id="@+id/T_annee"
+                    android:id="@+id/T_anneedejavu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="102dp"
                     android:text="Année"
                     android:textColor="#050505"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/T_titre"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/I_filmdejavu"
+                    app:layout_constraintVertical_bias="0.4" />
 
                 <TextView
-                    android:id="@+id/T_duree"
+                    android:id="@+id/T_dureedejavu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Durée"
                     android:textColor="#020202"
-                    app:layout_constraintBottom_toTopOf="@+id/T_description"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.162"
-                    app:layout_constraintStart_toEndOf="@+id/I_film1"
-                    app:layout_constraintTop_toBottomOf="@+id/T_titre" />
+                    app:layout_constraintHorizontal_bias="0.103"
+                    app:layout_constraintStart_toEndOf="@+id/T_anneedejavu"
+                    app:layout_constraintTop_toBottomOf="@+id/I_filmdejavu"
+                    app:layout_constraintVertical_bias="0.388" />
 
                 <ImageButton
                     android:id="@+id/imageButton_fleche"
@@ -114,7 +100,24 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
 
+                <TextView
+                    android:id="@+id/T_titredejavu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="Titre"
+                    android:textColor="#050505"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/T_descriptiondejavu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/I_filmdejavu"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.444" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
