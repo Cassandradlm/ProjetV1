@@ -65,6 +65,7 @@ public class RechercheFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recherche, container, false);
 
         recyclerView=(RecyclerView)view.findViewById(R.id.listfilm);
+        recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
