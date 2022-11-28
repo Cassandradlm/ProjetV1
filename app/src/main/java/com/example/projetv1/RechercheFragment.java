@@ -77,6 +77,7 @@ public class RechercheFragment extends Fragment {
         adapter=new Adapter(options);
         recyclerView.setAdapter(adapter);
 
+
         return view;
     }
 
