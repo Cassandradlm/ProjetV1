@@ -42,10 +42,4 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor getdata(){
-        Log.d("CURSOR","OK");
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * from mycourses", null);
-        return cursor;
-    }
 }

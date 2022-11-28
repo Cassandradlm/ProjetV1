@@ -1,8 +1,10 @@
 package com.example.projetv1;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -35,8 +37,8 @@ public class RechercheFragment extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list;
-    DBHandler DB;
-    Adapter adapter;
+    SQLiteDatabase sqLiteDatabase;
+    DBHandler db;
 
     public RechercheFragment() { }
 
@@ -63,41 +65,50 @@ public class RechercheFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_recherche, container, false);
 
-        DB = new DBHandler(getContext());
-        titre_list = new ArrayList<>();
-        annee_list = new ArrayList<>();
-        categorie_list = new ArrayList<>();
-        description_list = new ArrayList<>();
-        duree_list = new ArrayList<>();
-        affiche_list = new ArrayList<>();
-
-        recyclerView = (RecyclerView)view.findViewById(R.id.listfilm);
-        adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        displaydata();
-
-        return view;
+        return inflater.inflate(R.layout.fragment_recherche, container, false);
 
     }
 
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        displaydata();
+        recyclerView = view.findViewById(R.id.listfilm);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+
+        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
     private void displaydata() {
-        Cursor cursor = DB.getdata();
+        //Cursor cursor = db.getdata();
+        db=new DBHandler(getContext());
+
+        sqLiteDatabase = db.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses", null);
+
         if(cursor.getCount()==0){
             Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
             return;
         }
         else{
+            titre_list = new ArrayList<String>();
+            annee_list = new ArrayList<String>();
+            categorie_list = new ArrayList<String>();
+            description_list = new ArrayList<String>();
+            duree_list = new ArrayList<String>();
+            affiche_list = new ArrayList<String>();
+
             while(cursor.moveToNext()){
-                titre_list.add(cursor.getString(0));
-                annee_list.add(cursor.getString(5));
-                categorie_list.add(cursor.getString(2));
-                description_list.add(cursor.getString(1));
-                duree_list.add(cursor.getString(4));
-                affiche_list.add(cursor.getString(3));
+                titre_list.add(cursor.getString(1));
+                annee_list.add(cursor.getString(6));
+                categorie_list.add(cursor.getString(3));
+                description_list.add(cursor.getString(2));
+                duree_list.add(cursor.getString(5));
+                affiche_list.add(cursor.getString(4));
             }
         }
     }
