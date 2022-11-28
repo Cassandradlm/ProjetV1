@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,33 +33,21 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigationView;
+    static SharedPreferences mPrefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.page_navigation);
 
-        SharedPreferences pref = MainActivity.this.getSharedPreferences("FIRST",0);
-        SharedPreferences.Editor editor= pref.edit();
-        boolean firstRun = pref.getBoolean("firstRun", true);
-        if(firstRun)
-        {
-            extract_and_save ex = new extract_and_save();
-            ArrayList<Film> liste = ex.getListItems();
-            DBHandler dbHandler = new DBHandler(this);
-            for (int i = 0; i < liste.size(); i++) {
-                dbHandler.addNewCourse(
-                        liste.get(i).getNom(),
-                        liste.get(i).getDescription(),
-                        liste.get(i).getCategorie(),
-                        liste.get(i).getAffiche(),
-                        String.valueOf(liste.get(i).getDuree()),
-                        String.valueOf(liste.get(i).getAnnee()));
-                Log.d("OK FIRST","OKKK");
-            editor.putBoolean("firstRun",false);
-            editor.commit();
+        Context mContext = this.getApplicationContext();
+
+        mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
+        if(MainActivity.getFirstRun()) {
+            setRunned();
+            getListItems();
             }
-        }
+        else { }
 
         navigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new TirageFragment()).commit();
@@ -91,6 +82,47 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private void getListItems() {
+        ArrayList<Film> film_list = new ArrayList<>();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DBHandler dbHandler = new DBHandler(this);
+        db.collection("ProjetAndroid")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (QueryDocumentSnapshot document: queryDocumentSnapshots){
+                            Film film = document.toObject(Film.class);
+                            film_list.add(film);
+                            Log.d("5G", film.getNom());
+                        }
+                        Log.d("LISTE_FILM", String.valueOf(film_list.size()));
+                        for (int i = 0; i < film_list.size(); i++) {
+                            dbHandler.addNewCourse(
+                                    String.valueOf(film_list.get(i).getNom()),
+                                    String.valueOf(film_list.get(i).getDescription()),
+                                    String.valueOf(film_list.get(i).getCategorie()),
+                                    String.valueOf(film_list.get(i).getAffiche()),
+                                    String.valueOf(film_list.get(i).getDuree()),
+                                    String.valueOf(film_list.get(i).getAnnee()));
+                            Log.d("OK FIRST","OKKK");
+                        }
+                    }
+                });
+
+    }
+
+    public static boolean getFirstRun() {
+        return mPrefs.getBoolean("firstRun", true);
+    }
+
+    public static void setRunned() {
+        SharedPreferences.Editor edit = mPrefs.edit();
+        edit.putBoolean("firstRun", false);
+        edit.commit();
+    }
+
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
