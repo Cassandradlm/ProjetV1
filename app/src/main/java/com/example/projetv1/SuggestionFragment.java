@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class LikeFragment extends Fragment {
+public class SuggestionFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -29,7 +29,7 @@ public class LikeFragment extends Fragment {
     SQLiteDatabase sqLiteDatabase;
     DBHandler db;
 
-    public LikeFragment() { }
+    public SuggestionFragment() { }
 
     public static RechercheFragment newInstance(String param1, String param2) {
         RechercheFragment fragment = new RechercheFragment();
@@ -55,7 +55,7 @@ public class LikeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_like, container, false);
+        return inflater.inflate(R.layout.fragment_recherche, container, false);
 
     }
 
@@ -63,7 +63,7 @@ public class LikeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         displaydata();
-        recyclerView = view.findViewById(R.id.listfilm_like);
+        recyclerView = view.findViewById(R.id.listfilm_suggestion);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 

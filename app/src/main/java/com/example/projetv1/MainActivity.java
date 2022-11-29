@@ -15,6 +15,9 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -58,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment =null;
+                ImageButton bouton_like = findViewById(R.id.Button_like);
+                ImageButton bouton_dislike = findViewById(R.id.Button_dislike);
+                ImageButton bouton_dejavu = findViewById(R.id.Button_dejavu);
                 switch (item.getItemId()){
                     case R.id.Suggestions:
                         fragment = new TirageFragment();

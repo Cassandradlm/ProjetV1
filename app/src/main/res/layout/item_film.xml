@@ -7,7 +7,8 @@ xmlns:tools="http://schemas.android.com/tools"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".item_film_actions">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -58,7 +59,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:ellipsize="end"
             android:text="Description"
             android:textColor="#020202"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton_like"
+            app:layout_constraintBottom_toTopOf="@+id/Button_dejavu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
@@ -95,24 +96,26 @@ xmlns:tools="http://schemas.android.com/tools"
             app:layout_constraintVertical_bias="0.666" />
 
         <ImageButton
-            android:id="@+id/imageButton_dislike"
+            android:id="@+id/Button_like"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:backgroundTint="#F8F7F7"
             android:src="@drawable/ic_baseline_thumb_up_24"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageButton_dejavu"
+            app:layout_constraintStart_toEndOf="@+id/Button_dislike"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.964" />
+            app:layout_constraintVertical_bias="0.966" />
 
         <ImageButton
-            android:id="@+id/imageButton_like"
+            android:id="@+id/Button_dejavu"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:backgroundTint="#F8F7F7"
-            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:src="@drawable/ic_baseline_remove_red_eye_24"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -121,15 +124,17 @@ xmlns:tools="http://schemas.android.com/tools"
             app:layout_constraintVertical_bias="0.967" />
 
         <ImageButton
-            android:id="@+id/imageButton_dejavu"
+            android:id="@+id/Button_dislike"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:backgroundTint="#F8F7F7"
-            android:src="@drawable/ic_baseline_remove_red_eye_24"
+            android:rotation="180"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageButton_like"
+            app:layout_constraintStart_toEndOf="@+id/Button_dejavu"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.966" />
 
