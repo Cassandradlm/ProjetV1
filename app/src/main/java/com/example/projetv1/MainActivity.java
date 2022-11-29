@@ -83,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
+                if(fragment == item.getItemId(R.id.Suggestions)){
+                    bouton_like.setVisibility(View.INVISIBLE);
+                    bouton_dislike.setVisibility(View.VISIBLE);
+                    bouton_dejavu.setVisibility(View.VISIBLE);
+                }
                 return true;
             }
         });

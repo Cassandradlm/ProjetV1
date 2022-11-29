@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -73,7 +76,9 @@ public class RechercheFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        displaydata();
+        SearchView searchView = view.findViewById(R.id.searchView);
+
+        displaydata("");
         recyclerView = view.findViewById(R.id.listfilm);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
@@ -81,14 +86,43 @@ public class RechercheFragment extends Fragment {
         Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+
+
+        // below line is to call set on query text listener method.
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                displaydata(newText);
+                Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
     }
 
-    private void displaydata() {
+    private void displaydata(String search) {
         //Cursor cursor = db.getdata();
         db=new DBHandler(getContext());
 
         sqLiteDatabase = db.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses", null);
+        String query;
+        if(search ==""){
+            query = "SELECT * FROM mycourses ;";
+        }
+        else{
+            query = "SELECT * FROM mycourses"+
+                    " WHERE Nom LIKE '%" + search + "%';";
+        }
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        Log.d("CURSOR",String.valueOf(cursor.getCount()));
 
         if(cursor.getCount()==0){
             Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();

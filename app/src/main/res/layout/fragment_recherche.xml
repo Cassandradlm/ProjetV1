@@ -12,6 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#4AFFFFFF"
+        android:focusable="auto"
+        android:focusableInTouchMode="true"
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
