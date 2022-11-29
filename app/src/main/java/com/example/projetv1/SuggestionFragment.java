@@ -25,7 +25,7 @@ public class SuggestionFragment extends Fragment {
     private String mParam2;
 
     RecyclerView recyclerView;
-    ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list;
+    ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
     DBHandler db;
 
@@ -67,7 +67,7 @@ public class SuggestionFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
+        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -89,6 +89,7 @@ public class SuggestionFragment extends Fragment {
             description_list = new ArrayList<String>();
             duree_list = new ArrayList<String>();
             affiche_list = new ArrayList<String>();
+            affichenoglide_list = new ArrayList<>();
 
             while(cursor.moveToNext()){
                 titre_list.add(cursor.getString(1));
@@ -97,6 +98,7 @@ public class SuggestionFragment extends Fragment {
                 description_list.add(cursor.getString(2));
                 duree_list.add(cursor.getString(5));
                 affiche_list.add(cursor.getString(4));
+                affichenoglide_list.add(cursor.getString(7));
             }
         }
     }}

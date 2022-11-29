@@ -26,9 +26,9 @@ public class LikeFragment extends Fragment {
     private String mParam2;
 
     RecyclerView recyclerView;
-    ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list;
+    ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
-    DBHandler db;
+    DBLike db;
 
     public LikeFragment() { }
 
@@ -67,16 +67,16 @@ public class LikeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list);
+        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
     private void displaydata() {
-        db=new DBHandler(getContext());
+        db=new DBLike(getContext());
 
         sqLiteDatabase = db.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_like ORDER BY id desc", null);
 
         if(cursor.getCount()==0){
             Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
@@ -89,6 +89,7 @@ public class LikeFragment extends Fragment {
             description_list = new ArrayList<String>();
             duree_list = new ArrayList<String>();
             affiche_list = new ArrayList<String>();
+            affichenoglide_list = new ArrayList<>();
 
             while(cursor.moveToNext()){
                 titre_list.add(cursor.getString(1));
@@ -97,6 +98,7 @@ public class LikeFragment extends Fragment {
                 description_list.add(cursor.getString(2));
                 duree_list.add(cursor.getString(5));
                 affiche_list.add(cursor.getString(4));
+                affichenoglide_list.add(cursor.getString(7));
             }
         }
     }}

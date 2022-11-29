@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.common.reflect.TypeToken;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -29,11 +30,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.Gson;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private ArrayList<Integer> liste_film_like;
+    private ArrayList<Integer> liste_film_dislike;
+    private ArrayList<Integer> liste_film_dejavu;
 
     BottomNavigationView navigationView;
     static SharedPreferences mPrefs;
@@ -46,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
         Context mContext = this.getApplicationContext();
 
         mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
+
         if(MainActivity.getFirstRun()) {
-            setRunned();
             getListItems();
+            setRunned();
             }
         else { }
 
@@ -61,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment =null;
-                ImageButton bouton_like = findViewById(R.id.Button_like);
-                ImageButton bouton_dislike = findViewById(R.id.Button_dislike);
-                ImageButton bouton_dejavu = findViewById(R.id.Button_dejavu);
                 switch (item.getItemId()){
                     case R.id.Suggestions:
                         fragment = new TirageFragment();
@@ -83,11 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
-                if(fragment == item.getItemId(R.id.Suggestions)){
-                    bouton_like.setVisibility(View.INVISIBLE);
-                    bouton_dislike.setVisibility(View.VISIBLE);
-                    bouton_dejavu.setVisibility(View.VISIBLE);
-                }
                 return true;
             }
         });
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getListItems() {
+        Log.d("5G", "blalba");
         ArrayList<Film> film_list = new ArrayList<>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DBHandler dbHandler = new DBHandler(this);
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
                                     String.valueOf(film_list.get(i).getCategorie()),
                                     String.valueOf(film_list.get(i).getAffiche()),
                                     String.valueOf(film_list.get(i).getDuree()),
-                                    String.valueOf(film_list.get(i).getAnnee()));
+                                    String.valueOf(film_list.get(i).getAnnee()),
+                                    String.valueOf(film_list.get(i).getAffiche()));
                             Log.d("OK FIRST","OKKK");
                         }
                     }
@@ -134,11 +136,35 @@ public class MainActivity extends AppCompatActivity {
         edit.commit();
     }
 
+    private void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("myAppPrefs", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("like", null);
+        Type type = new TypeToken<ArrayList<Integer>>() {}.getType();
+        liste_film_like = gson.fromJson(json, type);
+        if (liste_film_like == null) {
+            liste_film_like = new ArrayList<>();
+        }
+    }
+
+    private void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("myAppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(liste_film_like);
+        editor.putString("like", json);
+        editor.apply();
+        //Toast.makeText(this, "Saved Array List to Shared preferences. ", Toast.LENGTH_SHORT).show();
+    }
+
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
+    }
+    public void click_on_like(){
+
     }
 
     }

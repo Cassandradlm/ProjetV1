@@ -1,9 +1,11 @@
 package com.example.projetv1;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +17,11 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
+    private DBLike dbLike;
     private Context context;
-    private ArrayList titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list;
+    private ArrayList titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
 
-    public Adapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list,ArrayList description_list, ArrayList duree_list, ArrayList affiche_list) {
+    public Adapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list,ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
         this.context = context;
         this.titre_list = titre_list;
         this.annee_list = annee_list;
@@ -26,6 +29,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.description_list = description_list;
         this.duree_list = duree_list;
         this.affiche_list = affiche_list;
+        this.affichenoglide_list = affichenoglide_list;
     }
 
     @NonNull
@@ -41,6 +45,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.annee.setText(String.valueOf(annee_list.get(position)));
         holder.description.setText(String.valueOf(description_list.get(position)));
         holder.duree.setText(String.valueOf(duree_list.get(position))+" min");
+        holder.categorie.setText(String.valueOf(categorie_list.get(position)));
+        holder.affichenoglide.setText(String.valueOf(affichenoglide_list.get(position)));
         Glide.with(holder.affiche.getContext()).load(affiche_list.get(position)).into(holder.affiche);
     }
 
@@ -50,8 +56,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titre, description, annee, duree;
+        TextView titre, description, annee, duree, categorie, affichenoglide;
         ImageView affiche;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titre = itemView.findViewById(R.id.T_titrerecherche);
@@ -59,6 +66,26 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             annee = itemView.findViewById(R.id.T_anneerecherche);
             duree = itemView.findViewById(R.id.T_dureerecherche);
             affiche = itemView.findViewById(R.id.I_filmrecherche);
+            categorie = itemView.findViewById(R.id.t_categorierecherche);
+            affichenoglide = itemView.findViewById(R.id.T_affichenoglide);
+
+            //https://www.youtube.com/watch?v=FA5cGLLiSWs
+
+            itemView.findViewById(R.id.Button_like).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dbLike = new DBLike(view.getContext());
+                    dbLike.addNewLike(
+                            titre.getText().toString(),
+                            description.getText().toString(),
+                            categorie.getText().toString(),
+                            affichenoglide.getText().toString(),
+                            duree.getText().toString(),
+                            annee.getText().toString(),
+                            affichenoglide.getText().toString());
+
+                }
+            });
         }
     }
 
