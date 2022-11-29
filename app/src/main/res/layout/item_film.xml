@@ -11,34 +11,16 @@ xmlns:tools="http://schemas.android.com/tools"
     tools:context=".item_film_actions">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F8F7F7"
         android:backgroundTint="#F8F7F7"
-        android:maxHeight="200dp"
+        android:clickable="true"
+        android:maxHeight="300dp"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="5dp">
-
-        <TextView
-            android:id="@+id/t_categorierecherche"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:maxWidth="250dp"
-            android:text="Titre"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.386"
-            app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.055" />
 
         <TextView
             android:id="@+id/T_affichenoglide"
@@ -62,18 +44,20 @@ xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/I_filmrecherche"
             android:layout_width="147dp"
             android:layout_height="152dp"
+            android:layout_marginTop="-6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.003"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.127"
+            app:layout_constraintTop_toBottomOf="@+id/t_categorierecherche"
+            app:layout_constraintVertical_bias="0.0"
             tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/T_titrerecherche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
             android:layout_marginRight="10dp"
             android:maxWidth="250dp"
             android:text="Titre"
@@ -82,38 +66,37 @@ xmlns:tools="http://schemas.android.com/tools"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.062" />
+            app:layout_constraintTop_toTopOf="@+id/I_filmrecherche"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/T_descriptionrecherche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:maxWidth="240dp"
             android:maxLines="3"
-            android:ellipsize="end"
             android:text="Description"
             android:textColor="#020202"
-            app:layout_constraintBottom_toTopOf="@+id/Button_dejavu"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/I_filmrecherche"
-            app:layout_constraintTop_toBottomOf="@+id/T_titrerecherche"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/T_titrerecherche" />
 
         <TextView
             android:id="@+id/T_anneerecherche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginStart="18dp"
             android:text="Année"
             android:textColor="#050505"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/I_filmrecherche"
             app:layout_constraintVertical_bias="0.0" />
@@ -122,29 +105,45 @@ xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/T_dureerecherche"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
             android:text="Durée"
             android:textColor="#020202"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/T_anneerecherche"
             app:layout_constraintTop_toBottomOf="@+id/I_filmrecherche"
-            app:layout_constraintVertical_bias="0.666" />
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/t_dureerecherche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="'"
+            android:textColor="#020202"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/T_dureerecherche"
+            app:layout_constraintTop_toBottomOf="@+id/I_filmrecherche"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/Button_like"
             android:layout_width="55dp"
             android:layout_height="55dp"
+            android:layout_marginEnd="30dp"
             android:backgroundTint="#F8F7F7"
             android:src="@drawable/ic_baseline_thumb_up_24"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/Button_dislike"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.966" />
+            app:layout_constraintBottom_toBottomOf="@+id/Button_dislike"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton_fleche"
+            app:layout_constraintTop_toTopOf="@+id/Button_dislike"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/Button_dejavu"
@@ -154,11 +153,9 @@ xmlns:tools="http://schemas.android.com/tools"
             android:src="@drawable/ic_baseline_remove_red_eye_24"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.967" />
+            app:layout_constraintEnd_toStartOf="@+id/Button_dislike"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/I_filmrecherche" />
 
         <ImageButton
             android:id="@+id/Button_dislike"
@@ -168,25 +165,39 @@ xmlns:tools="http://schemas.android.com/tools"
             android:rotation="180"
             android:src="@drawable/ic_baseline_thumb_up_24"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/Button_dejavu"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.966" />
+            app:layout_constraintBottom_toBottomOf="@+id/Button_dejavu"
+            app:layout_constraintEnd_toStartOf="@+id/Button_like"
+            app:layout_constraintTop_toTopOf="@+id/Button_dejavu"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/imageButton_fleche"
             android:layout_width="35dp"
             android:layout_height="36dp"
-            android:backgroundTint="#E80808"
-            android:src="@android:drawable/arrow_down_float"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"
+            android:src="@android:drawable/ic_dialog_info"
+            android:tint="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="@+id/Button_like"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.957"
+            app:layout_constraintTop_toTopOf="@+id/Button_like"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/t_categorierecherche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            android:maxWidth="250dp"
+            android:padding="3dp"
+            android:text="Titre"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/T_titrerecherche"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.898" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
