@@ -2,10 +2,8 @@ package com.example.projetv1;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -32,7 +30,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put("Affichenoglide", filmAffichenoglide);
 
         db.insert("mycourses", null, values);
-        Log.d("AJOUT","OK");
         db.close();
     }
 

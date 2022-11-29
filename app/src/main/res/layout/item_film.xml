@@ -11,6 +11,7 @@ xmlns:tools="http://schemas.android.com/tools"
     tools:context=".item_film_actions">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F8F7F7"

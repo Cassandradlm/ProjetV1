@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class DBDislike extends SQLiteOpenHelper {
 
@@ -31,7 +30,6 @@ public class DBDislike extends SQLiteOpenHelper {
         values.put("Affichenoglide", filmAffichenoglide);
 
         db.insert("film_dislike", null, values);
-        Log.d("AJOUT","OK");
         db.close();
     }
 

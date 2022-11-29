@@ -6,29 +6,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
-
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class RechercheFragment extends Fragment {
@@ -125,7 +111,6 @@ public class RechercheFragment extends Fragment {
                     " WHERE Nom LIKE '%" + search + "%';";
         }
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
-        Log.d("CURSOR",String.valueOf(cursor.getCount()));
 
         if(cursor.getCount()==0){
             Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
