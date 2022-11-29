@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     private DBLike dbLike;
     private DBDejaVu dbDejavu;
@@ -26,7 +26,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private ArrayList titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     boolean activate_like, activate_dislike, activate_dejavu;
 
-    public Adapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list,ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
+    public RecyclerAdapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list, ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
         this.context = context;
         this.titre_list = titre_list;
         this.annee_list = annee_list;

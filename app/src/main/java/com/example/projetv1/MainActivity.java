@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.common.reflect.TypeToken;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 
 
@@ -36,7 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
         if(MainActivity.getFirstRun()) {
             getListItems();
-            setRunned();
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Chargement des données");
+            progressDialog.setMessage("Veuillez patienter...");
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.create();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setRunned();
+                    progressDialog.dismiss();
+                }
+            },5000);
             }
         else { }
 
@@ -75,16 +88,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getListItems() {
-        ArrayList<Film> film_list = new ArrayList<>();
+        ArrayList<Class_Film> film_list = new ArrayList<>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DBHandler dbHandler = new DBHandler(this);
+        DBAll dbHandler = new DBAll(this);
         db.collection("ProjetAndroid")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (QueryDocumentSnapshot document: queryDocumentSnapshots){
-                            Film film = document.toObject(Film.class);
+                            Class_Film film = document.toObject(Class_Film.class);
                             film_list.add(film);
                         }
                         for (int i = 0; i < film_list.size(); i++) {

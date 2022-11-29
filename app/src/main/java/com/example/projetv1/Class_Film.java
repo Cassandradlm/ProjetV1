@@ -1,14 +1,14 @@
 package com.example.projetv1;
 
-public class Film {
+public class Class_Film {
     private String Nom, Description, Categorie, Affiche;
     private int Duree, Annee;
 
-    public Film() {
+    public Class_Film() {
 
     }
 
-    public Film(String nom, String description, String categorie, String affiche, int duree, int annee) {
+    public Class_Film(String nom, String description, String categorie, String affiche, int duree, int annee) {
         Nom = nom;
         Description = description;
         Categorie = categorie;

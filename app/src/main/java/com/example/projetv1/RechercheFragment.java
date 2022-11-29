@@ -27,7 +27,7 @@ public class RechercheFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
-    DBHandler db;
+    DBAll db;
 
     public RechercheFragment() { }
 
@@ -69,7 +69,7 @@ public class RechercheFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+        RecyclerAdapter adapter = new RecyclerAdapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
         adapter.activate_like(true);
         adapter.activate_dislike(true);
         adapter.activate_dejavu(true);
@@ -88,7 +88,7 @@ public class RechercheFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 displaydata(newText);
-                Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+                RecyclerAdapter adapter = new RecyclerAdapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 return false;
@@ -99,7 +99,7 @@ public class RechercheFragment extends Fragment {
 
     private void displaydata(String search) {
         //Cursor cursor = db.getdata();
-        db=new DBHandler(getContext());
+        db=new DBAll(getContext());
 
         sqLiteDatabase = db.getReadableDatabase();
         String query;
