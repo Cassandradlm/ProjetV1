@@ -14,6 +14,8 @@
         android:background="#F6E2E2"
         android:focusable="auto"
         android:focusableInTouchMode="true"
+        android:queryHint="Tapez ici..."
+        android:focusedByDefault="true"
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
