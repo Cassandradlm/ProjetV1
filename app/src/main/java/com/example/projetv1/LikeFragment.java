@@ -60,6 +60,7 @@ public class LikeFragment extends Fragment {
 
     }
 
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         displaydata();
@@ -68,9 +69,14 @@ public class LikeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+        adapter.activate_like(false);
+        adapter.activate_dislike(true);
+        adapter.activate_dejavu(true);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
     }
+
 
     private void displaydata() {
         db=new DBLike(getContext());

@@ -29,7 +29,7 @@ public class DejaVuFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
-    DBHandler db;
+    DBDejaVu db;
 
     public DejaVuFragment() { }
 
@@ -70,18 +70,21 @@ public class DejaVuFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+        adapter.activate_like(true);
+        adapter.activate_dislike(true);
+        adapter.activate_dejavu(false);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
     private void displaydata() {
-        db=new DBHandler(getContext());
+        db=new DBDejaVu(getContext());
 
         sqLiteDatabase = db.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_dejavu ORDER BY id desc", null);
 
         if(cursor.getCount()==0){
-            Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Pas de films dans cette liste !", Toast.LENGTH_SHORT).show();
             return;
         }
         else{

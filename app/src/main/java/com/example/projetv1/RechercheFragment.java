@@ -84,6 +84,9 @@ public class RechercheFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         Adapter adapter = new Adapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+        adapter.activate_like(true);
+        adapter.activate_dislike(true);
+        adapter.activate_dejavu(true);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
