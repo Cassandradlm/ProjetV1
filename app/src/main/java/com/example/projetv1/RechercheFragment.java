@@ -89,6 +89,9 @@ public class RechercheFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 displaydata(newText);
                 RecyclerAdapter adapter = new RecyclerAdapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
+                adapter.activate_like(true);
+                adapter.activate_dislike(true);
+                adapter.activate_dejavu(true);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 return false;
@@ -113,7 +116,6 @@ public class RechercheFragment extends Fragment {
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
         if(cursor.getCount()==0){
-            Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
             return;
         }
         else{
