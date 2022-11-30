@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.recherche:
                         fragment = new RechercheFragment();
                         break;
+                    case R.id.reglage:
+                        fragment = new ReglagesFragment();
+                        break;
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();

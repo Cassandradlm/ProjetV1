@@ -52,7 +52,7 @@
                             android:layout_height="128dp"
                             tools:layout_editor_absoluteX="0dp"
                             tools:layout_editor_absoluteY="0dp"
-                            tools:srcCompat="@tools:sample/avatars[0]" />
+                            tools:srcCompat="@drawable/All" />
 
                         <TextView
                             android:id="@+id/T_all"
@@ -87,13 +87,13 @@
 
                         <ImageView
                             android:id="@+id/I_action"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="149dp"
+                            android:layout_height="132dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Action" />
 
                         <TextView
                             android:id="@+id/T_action"
@@ -184,12 +184,12 @@
 
                         <ImageView
                             android:id="@+id/I_comedie"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="139dp"
+                            android:layout_height="130dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Comedie" />
 
                         <TextView
                             android:id="@+id/T_comedie"
@@ -236,12 +236,12 @@
 
                         <ImageView
                             android:id="@+id/I_documentaire"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="123dp"
+                            android:layout_height="125dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Documentaire" />
 
                         <TextView
                             android:id="@+id/T_documentaire"
@@ -276,12 +276,12 @@
 
                         <ImageView
                             android:id="@+id/I_drame"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="140dp"
+                            android:layout_height="127dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Drame" />
 
                         <TextView
                             android:id="@+id/T_drame"
@@ -328,12 +328,13 @@
 
                         <ImageView
                             android:id="@+id/I_fantastique"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="138dp"
+                            android:layout_height="122dp"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/fantastique" />
 
                         <TextView
                             android:id="@+id/T_fantastique"
@@ -368,12 +369,12 @@
 
                         <ImageView
                             android:id="@+id/I_francais"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="133dp"
+                            android:layout_height="116dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Francais" />
 
                         <TextView
                             android:id="@+id/T_francais"
@@ -420,12 +421,12 @@
 
                         <ImageView
                             android:id="@+id/I_horreur"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="136dp"
+                            android:layout_height="128dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Horreur" />
 
                         <TextView
                             android:id="@+id/T_horreur"
@@ -460,12 +461,12 @@
 
                         <ImageView
                             android:id="@+id/I_jeunesse"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="131dp"
+                            android:layout_height="120dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Jeunesse" />
 
                         <TextView
                             android:id="@+id/T_jeunesse"
@@ -512,12 +513,12 @@
 
                         <ImageView
                             android:id="@+id/I_noel"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="135dp"
+                            android:layout_height="127dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Noel" />
 
                         <TextView
                             android:id="@+id/T_noel"
@@ -552,12 +553,12 @@
 
                         <ImageView
                             android:id="@+id/I_policier"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="135dp"
+                            android:layout_height="122dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Policier" />
 
                         <TextView
                             android:id="@+id/T_policier"
@@ -603,12 +604,12 @@
 
                         <ImageView
                             android:id="@+id/I_romance"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="136dp"
+                            android:layout_height="117dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Romance" />
 
                         <TextView
                             android:id="@+id/T_romance"
@@ -643,12 +644,12 @@
 
                         <ImageView
                             android:id="@+id/I_sciencefiction"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="121dp"
+                            android:layout_height="117dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Scienfiction" />
 
                         <TextView
                             android:id="@+id/T_sciencefiction"
@@ -695,12 +696,12 @@
 
                         <ImageView
                             android:id="@+id/I_thriller"
-                            android:layout_width="114dp"
-                            android:layout_height="103dp"
+                            android:layout_width="142dp"
+                            android:layout_height="130dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/Thriller" />
 
                         <TextView
                             android:id="@+id/T_thriller"
