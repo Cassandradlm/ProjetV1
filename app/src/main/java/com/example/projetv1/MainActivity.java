@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Context mContext = this.getApplicationContext();
 
         mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
+        mPrefs.getString("page", "Top");
 
         if(MainActivity.getFirstRun()) {
             getListItems();
@@ -72,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new TirageFragment()).commit();
         navigationView.setSelectedItemId(R.id.Suggestions);
 
+        SharedPreferences.Editor edit = mPrefs.edit();
+        edit.putString("page", "Suggestions");
+        edit.commit();
+
         findViewById(R.id.reglagebutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,25 +89,36 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment =null;
                 TextView title = findViewById(R.id.nomPage);
+
                 switch (item.getItemId()){
                     case R.id.Suggestions:
                         title.setText("Suggestions");
+                        edit.putString("page", "Suggestions");
+                        edit.commit();
                         fragment = new TirageFragment();
                         break;
                     case R.id.Films_aimes:
                         title.setText("Films aimés");
+                        edit.putString("page", "Films aimés");
+                        edit.commit();
                         fragment = new LikeFragment();
                         break;
                     case R.id.Deja_vus:
                         title.setText("Films déjà vus");
+                        edit.putString("page", "Films déjà vus");
+                        edit.commit();
                         fragment = new DejaVuFragment();
                         break;
                     case R.id.dislike:
                         title.setText("Films pas aimés");
+                        edit.putString("page", "Films pas aimés");
+                        edit.commit();
                         fragment = new DislikeFragment();
                         break;
                     case R.id.recherche:
                         title.setText("Recherche");
+                        edit.putString("page", "Recherche");
+                        edit.commit();
                         fragment = new RechercheFragment();
                         break;
 
@@ -180,6 +196,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor edit = mPrefs.edit();
         edit.putBoolean("firstRun", false);
         edit.commit();
+    }
+    public static String getPage(){
+        return mPrefs.getString("page","");
     }
 
     private void replaceFragment(Fragment fragment){

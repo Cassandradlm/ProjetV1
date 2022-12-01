@@ -1,5 +1,7 @@
 package com.example.projetv1;
 
+import static java.security.AccessController.getContext;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
@@ -35,7 +37,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
 
-    BottomNavigationView navigationView;
 
     public RecyclerAdapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list, ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
         this.context = context;
@@ -52,7 +53,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View v = LayoutInflater.from(context).inflate(R.layout.item_film, parent, false);
-        supprimer();
         return new ViewHolder(v);
     }
 
@@ -184,6 +184,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                             annee.getText().toString());
                 }
             });
+            itemView.findViewById(R.id.imageButton_supprimer).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    titre_list.remove(getLayoutPosition());
+                    description_list.remove(getLayoutPosition());
+                    categorie_list.remove(getLayoutPosition());
+                    affiche_list.remove(getLayoutPosition());
+                    duree_list.remove(getLayoutPosition());
+                    annee_list.remove(getLayoutPosition());
+                    affichenoglide_list.remove(getLayoutPosition());
+                    notifyItemRemoved(getLayoutPosition());
+                }
+            });
         }
     }
 
@@ -225,15 +238,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
 
-    public void supprimer(){
-        /*
+    public void supprimer(String nom_film, View view){
+        String nom_page = MainActivity.getPage();
+        Log.d("PAGE", MainActivity.getPage()) ;
 
-        Log.d("PAGE", nom_page);
         if(nom_page == "Suggestions"){
 
         }
         if(nom_page == "Films aimés"){
+            dbLike = new DBLike(view.getContext());
+            sqLiteDatabase = dbLike.getReadableDatabase();
+            sqLiteDatabase.delete("film_like", "Nom=?", new String[]{nom_film});
 
+
+
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_like WHERE Nom = '" + nom_film + "';", null);
+            if(cursor.getCount()>=1){
+                Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films dislikés...", Toast.LENGTH_SHORT).show();
+            }
         }
         if(nom_page == "Films déjà vus"){
 
@@ -243,7 +265,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
         else {
 
-        }*/
+        }
     }
 
     public void activate_like(boolean activate_like) {
