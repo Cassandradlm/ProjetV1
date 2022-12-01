@@ -21,8 +21,4 @@
         android:id="@+id/recherche"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Recherche" />
-    <item
-        android:id="@+id/reglage"
-        android:icon="@drawable/reglages"
-        android:title="Reglages" />
 </menu>

@@ -141,7 +141,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:src="@drawable/ic_baseline_thumb_up_24"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/Button_dislike"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton_fleche"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton_detail"
             app:layout_constraintTop_toTopOf="@+id/Button_dislike"
             app:layout_constraintVertical_bias="1.0" />
 
@@ -171,7 +171,7 @@ xmlns:tools="http://schemas.android.com/tools"
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
-            android:id="@+id/imageButton_fleche"
+            android:id="@+id/imageButton_detail"
             android:layout_width="35dp"
             android:layout_height="36dp"
             android:layout_marginEnd="10dp"

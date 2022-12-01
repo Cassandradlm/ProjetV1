@@ -22,18 +22,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/T_titrecategorie"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:background="#A4161A"
-                android:backgroundTint="#A4161A"
-                android:gravity="center_vertical"
-                android:text=" Catégorie"
-                android:textColor="#020202"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="199dp"
@@ -156,7 +144,7 @@
                     app:layout_constraintVertical_bias="0.966" />
 
                 <ImageButton
-                    android:id="@+id/imageButton_fleche"
+                    android:id="@+id/imageButton_detail"
                     android:layout_width="35dp"
                     android:layout_height="36dp"
 

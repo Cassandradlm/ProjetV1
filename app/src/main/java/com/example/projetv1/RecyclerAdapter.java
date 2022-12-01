@@ -1,11 +1,14 @@
 package com.example.projetv1;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private Context context;
     private ArrayList titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     boolean activate_like, activate_dislike, activate_dejavu;
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+
 
     public RecyclerAdapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list, ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
         this.context = context;
@@ -161,13 +168,55 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     }
                 }
             });
-            itemView.findViewById(R.id.imageButton_fleche).setOnClickListener(new View.OnClickListener() {
+            itemView.findViewById(R.id.imageButton_detail).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    afficheDescription(titre.getText().toString(),
+                            description.getText().toString(),
+                            categorie.getText().toString(),
+                            affichenoglide.getText().toString(),
+                            duree.getText().toString(),
+                            annee.getText().toString());
                 }
             });
         }
+    }
+
+    public void afficheDescription(String titre, String description, String categorie,String affiche,String duree,String annee){
+        TextView titre_d, categorie_d, description_d, duree_d, annee_d;
+        ImageView affiche_d;
+        ImageButton bouton_fermer_d;
+
+        dialogBuilder = new AlertDialog.Builder(context);
+        final View DescriptionView = LayoutInflater.from(context).inflate(R.layout.fragment_description,null);
+
+        titre_d = DescriptionView.findViewById(R.id.T_titrefilmdescrp);
+        categorie_d = DescriptionView.findViewById(R.id.T_categoriedescription);
+        description_d = DescriptionView.findViewById(R.id.T_resume2description);
+        duree_d = DescriptionView.findViewById(R.id.T_dureedescription);
+        annee_d = DescriptionView.findViewById(R.id.t_anneedescription);
+        affiche_d = DescriptionView.findViewById(R.id.I_filmdescription);
+        bouton_fermer_d =  DescriptionView.findViewById(R.id.fermer_description);
+
+        description_d.setMovementMethod(new ScrollingMovementMethod());
+
+        titre_d.setText(titre);
+        categorie_d.setText(categorie);
+        description_d.setText(description);
+        duree_d.setText(duree);
+        annee_d.setText(annee);
+        Glide.with(context).load(affiche).into(affiche_d);
+
+        dialogBuilder.setView(DescriptionView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        bouton_fermer_d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
     }
 
     public void activate_like(boolean activate_like) {

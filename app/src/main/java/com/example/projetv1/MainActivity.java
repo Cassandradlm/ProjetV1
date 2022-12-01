@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,8 +30,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
     BottomNavigationView navigationView;
     static SharedPreferences mPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,24 +70,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment =null;
+                TextView title = findViewById(R.id.nomPage);
                 switch (item.getItemId()){
                     case R.id.Suggestions:
                         fragment = new TirageFragment();
+                        title.setText("Suggestions");
                         break;
                     case R.id.Films_aimes:
                         fragment = new LikeFragment();
+                        title.setText("Films aimés");
                         break;
                     case R.id.Deja_vus:
                         fragment = new DejaVuFragment();
+                        title.setText("Films déjà vus");
                         break;
                     case R.id.categorie:
                         fragment = new ListeFragment();
+                        title.setText("Catégories");
                         break;
                     case R.id.recherche:
                         fragment = new RechercheFragment();
-                        break;
-                    case R.id.reglage:
-                        fragment = new ReglagesFragment();
+                        title.setText("Recherche");
                         break;
 
                 }
@@ -116,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
 
     public static boolean getFirstRun() {
         return mPrefs.getBoolean("firstRun", true);
