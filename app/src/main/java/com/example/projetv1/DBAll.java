@@ -13,8 +13,8 @@ public class DBAll extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS mycourses");
-        db.execSQL("CREATE TABLE mycourses(id INTEGER PRIMARY KEY AUTOINCREMENT, Nom TEXT, Description TEXT, Categorie TEXT, Affiche TEXT, Duree TEXT, Annee TEXT, Affichenoglide TEXT)");
+        db.execSQL("DROP TABLE IF EXISTS mycourses;");
+        db.execSQL("CREATE TABLE mycourses(id INTEGER PRIMARY KEY AUTOINCREMENT, Nom TEXT, Description TEXT, Categorie TEXT, Affiche TEXT, Duree TEXT, Annee TEXT, Affichenoglide TEXT);");
     }
 
     public void addNewCourse(String filmNom, String filmDescription, String filmCategorie,
