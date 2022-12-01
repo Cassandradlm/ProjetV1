@@ -86,24 +86,24 @@ public class MainActivity extends AppCompatActivity {
                 TextView title = findViewById(R.id.nomPage);
                 switch (item.getItemId()){
                     case R.id.Suggestions:
-                        fragment = new TirageFragment();
                         title.setText("Suggestions");
+                        fragment = new TirageFragment();
                         break;
                     case R.id.Films_aimes:
-                        fragment = new LikeFragment();
                         title.setText("Films aimés");
+                        fragment = new LikeFragment();
                         break;
                     case R.id.Deja_vus:
-                        fragment = new DejaVuFragment();
                         title.setText("Films déjà vus");
+                        fragment = new DejaVuFragment();
                         break;
                     case R.id.dislike:
-                        fragment = new DislikeFragment();
                         title.setText("Films pas aimés");
+                        fragment = new DislikeFragment();
                         break;
                     case R.id.recherche:
-                        fragment = new RechercheFragment();
                         title.setText("Recherche");
+                        fragment = new RechercheFragment();
                         break;
 
                 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
@@ -32,6 +35,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
 
+    BottomNavigationView navigationView;
 
     public RecyclerAdapter(Context context, ArrayList titre_list, ArrayList annee_list, ArrayList categorie_list, ArrayList description_list, ArrayList duree_list, ArrayList affiche_list, ArrayList affichenoglide_list) {
         this.context = context;
@@ -48,6 +52,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View v = LayoutInflater.from(context).inflate(R.layout.item_film, parent, false);
+        supprimer();
         return new ViewHolder(v);
     }
 
@@ -217,6 +222,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 dialog.dismiss();
             }
         });
+    }
+
+
+    public void supprimer(){
+        /*
+
+        Log.d("PAGE", nom_page);
+        if(nom_page == "Suggestions"){
+
+        }
+        if(nom_page == "Films aimés"){
+
+        }
+        if(nom_page == "Films déjà vus"){
+
+        }
+        if(nom_page == "Films pas aimés"){
+
+        }
+        else {
+
+        }*/
     }
 
     public void activate_like(boolean activate_like) {
