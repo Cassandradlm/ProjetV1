@@ -112,7 +112,7 @@ public class RechercheFragment extends Fragment {
         }
         else{
             query = "SELECT * FROM mycourses"+
-                    " WHERE Nom LIKE '%" + search + "%';";
+                    " WHERE Nom LIKE '%" + search + "%' OR Categorie LIKE '%"+  search +"%';";
         }
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
