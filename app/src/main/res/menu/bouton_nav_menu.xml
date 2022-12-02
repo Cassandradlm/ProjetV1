@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Suggestions"
-        android:icon="@drawable/ic_baseline_camera_roll_24"
-        android:title="Suggestions" />
-    <item
         android:id="@+id/Films_aimes"
         android:icon="@drawable/ic_baseline_thumb_up_24"
         android:title="Aimé" />
     <item
-        android:id="@+id/Deja_vus"
-        android:icon="@drawable/ic_baseline_remove_red_eye_24"
-        android:title="Déja vus" />
-    <item
         android:id="@+id/dislike"
         android:icon="@drawable/ic_baseline_thumb_down_24"
         android:title="Pas aimé"/>
+    <item
+        android:id="@+id/Suggestions"
+        android:icon="@drawable/ic_baseline_camera_roll_24"
+        android:title="Suggestions" />
+    <item
+        android:id="@+id/Deja_vus"
+        android:icon="@drawable/ic_baseline_remove_red_eye_24"
+        android:title="Déja vus" />
     <item
         android:id="@+id/recherche"
         android:icon="@drawable/ic_baseline_search_24"
