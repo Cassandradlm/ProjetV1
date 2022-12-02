@@ -19,7 +19,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars = "vertical">
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/T_ajoutduree2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Durée"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutannee2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutcategorie" />
 
             <TextView
                 android:id="@+id/title_setting_text"
@@ -63,6 +76,175 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title_setting_text"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/button_ajoutfilm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ajout du film à la base de données"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.527"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.927" />
+
+            <TextView
+                android:id="@+id/T_ajouttitre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titre du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutcategorie"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajouttitre2"
+                app:layout_constraintHorizontal_bias="0.562"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.692" />
+
+            <TextView
+                android:id="@+id/T_ajoutcategorie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catégorie du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutduree"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajoutcategorie2"
+                app:layout_constraintHorizontal_bias="0.592"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.787" />
+
+            <TextView
+                android:id="@+id/T_ajoutduree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Durée du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutannee"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajoutduree2"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.84" />
+
+            <TextView
+                android:id="@+id/T_ajoutannee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Année du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutdescription"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajoutannee2"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.87" />
+
+            <TextView
+                android:id="@+id/T_ajoutdescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutimage"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajoutdescription2"
+                app:layout_constraintHorizontal_bias="0.714"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.897" />
+
+            <TextView
+                android:id="@+id/T_ajoutimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL de l'affiche du film :"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/button_ajoutfilm"
+                app:layout_constraintEnd_toStartOf="@+id/T_ajoutimage2"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.733" />
+
+            <TextView
+                android:id="@+id/T_ajouttitre2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titre"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutcategorie"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.464"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.685" />
+
+            <TextView
+                android:id="@+id/T_ajoutcategorie2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catégorie"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutduree2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.608"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajouttitre" />
+
+            <TextView
+                android:id="@+id/T_ajoutannee2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Année"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutdescription2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.519"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutduree" />
+
+            <TextView
+                android:id="@+id/T_ajoutdescription2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/T_ajoutimage2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.63"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutannee" />
+
+            <TextView
+                android:id="@+id/T_ajoutimage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL affiche"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/button_ajoutfilm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.751"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutdescription"
+                app:layout_constraintVertical_bias="0.206" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
