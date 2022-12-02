@@ -69,8 +69,9 @@ public class DejaVuFragment extends Fragment {
 
         RecyclerAdapter adapter = new RecyclerAdapter(getContext(), titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list);
         adapter.activate_like(true);
-        adapter.activate_dislike(false);
+        adapter.activate_dislike(true);
         adapter.activate_dejavu(false);
+        adapter.activate_supprimer(true);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

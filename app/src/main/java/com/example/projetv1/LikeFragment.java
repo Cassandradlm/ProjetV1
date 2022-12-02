@@ -71,6 +71,7 @@ public class LikeFragment extends Fragment {
         adapter.activate_like(false);
         adapter.activate_dislike(true);
         adapter.activate_dejavu(true);
+        adapter.activate_supprimer(true);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

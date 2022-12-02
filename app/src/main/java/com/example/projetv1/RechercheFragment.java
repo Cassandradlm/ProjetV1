@@ -73,6 +73,7 @@ public class RechercheFragment extends Fragment {
         adapter.activate_like(true);
         adapter.activate_dislike(true);
         adapter.activate_dejavu(true);
+        adapter.activate_supprimer(false);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

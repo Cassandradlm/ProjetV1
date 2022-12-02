@@ -29,10 +29,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private DBLike dbLike;
     private DBDejaVu dbDejavu;
     private DBDislike dbDislike;
+    private DBSuggestion dbSuggestion;
     SQLiteDatabase sqLiteDatabase;
     private Context context;
     private ArrayList titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
-    boolean activate_like, activate_dislike, activate_dejavu;
+    boolean activate_like, activate_dislike, activate_dejavu, activate_supprimer;
+    String nom_page = MainActivity.getPage();
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -89,17 +91,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             if (activate_like) {
                 itemView.findViewById(R.id.Button_like).setVisibility(View.VISIBLE);
             } else {
-                itemView.findViewById(R.id.Button_like).setVisibility(View.INVISIBLE);
+                itemView.findViewById(R.id.Button_like).setVisibility(View.GONE);
             }
             if (activate_dislike) {
                 itemView.findViewById(R.id.Button_dislike).setVisibility(View.VISIBLE);
             } else {
-                itemView.findViewById(R.id.Button_dislike).setVisibility(View.INVISIBLE);
+                itemView.findViewById(R.id.Button_dislike).setVisibility(View.GONE);
             }
             if (activate_dejavu) {
                 itemView.findViewById(R.id.Button_dejavu).setVisibility(View.VISIBLE);
             } else {
-                itemView.findViewById(R.id.Button_dejavu).setVisibility(View.INVISIBLE);
+                itemView.findViewById(R.id.Button_dejavu).setVisibility(View.GONE);
+            }
+            if (activate_supprimer) {
+                itemView.findViewById(R.id.imageButton_supprimer).setVisibility(View.VISIBLE);
+            } else {
+                itemView.findViewById(R.id.imageButton_supprimer).setVisibility(View.GONE);
             }
 
             itemView.findViewById(R.id.Button_like).setOnClickListener(new View.OnClickListener() {
@@ -121,8 +128,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                                 duree.getText().toString(),
                                 annee.getText().toString(),
                                 affichenoglide.getText().toString());
-                        Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
+                        if(nom_page == "Films pas aimés"){
+                            supprimer(titre_list.get(getLayoutPosition()).toString(), view);
+                            titre_list.remove(getLayoutPosition());
+                            description_list.remove(getLayoutPosition());
+                            categorie_list.remove(getLayoutPosition());
+                            affiche_list.remove(getLayoutPosition());
+                            duree_list.remove(getLayoutPosition());
+                            annee_list.remove(getLayoutPosition());
+                            affichenoglide_list.remove(getLayoutPosition());
+                            notifyItemRemoved(getLayoutPosition());
+                            Toast.makeText(view.getContext(), "Film déplacé dans la liste des films aimés !", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
+                        }
                     }
+
                 }
             });
 
@@ -170,9 +192,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                                 annee.getText().toString(),
                                 affichenoglide.getText().toString());
                         Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
+                        if(nom_page == "Films aimés"){
+                            supprimer(titre_list.get(getLayoutPosition()).toString(), view);
+                            titre_list.remove(getLayoutPosition());
+                            description_list.remove(getLayoutPosition());
+                            categorie_list.remove(getLayoutPosition());
+                            affiche_list.remove(getLayoutPosition());
+                            duree_list.remove(getLayoutPosition());
+                            annee_list.remove(getLayoutPosition());
+                            affichenoglide_list.remove(getLayoutPosition());
+                            notifyItemRemoved(getLayoutPosition());
+                            Toast.makeText(view.getContext(), "Film déplacé dans la liste des films pas aimés !", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             });
+
             itemView.findViewById(R.id.imageButton_detail).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -184,9 +222,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                             annee.getText().toString());
                 }
             });
+
             itemView.findViewById(R.id.imageButton_supprimer).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    supprimer(titre_list.get(getLayoutPosition()).toString(), view);
                     titre_list.remove(getLayoutPosition());
                     description_list.remove(getLayoutPosition());
                     categorie_list.remove(getLayoutPosition());
@@ -195,6 +235,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     annee_list.remove(getLayoutPosition());
                     affichenoglide_list.remove(getLayoutPosition());
                     notifyItemRemoved(getLayoutPosition());
+                    Toast.makeText(view.getContext(), "Film supprimé de la liste", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -239,29 +280,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 
     public void supprimer(String nom_film, View view){
-        String nom_page = MainActivity.getPage();
-        Log.d("PAGE", MainActivity.getPage()) ;
-
         if(nom_page == "Suggestions"){
-
+            dbSuggestion = new DBSuggestion(view.getContext());
+            sqLiteDatabase = dbSuggestion.getReadableDatabase();
+            sqLiteDatabase.delete("film_suggestion", "Nom=?", new String[]{nom_film});
         }
         if(nom_page == "Films aimés"){
             dbLike = new DBLike(view.getContext());
             sqLiteDatabase = dbLike.getReadableDatabase();
             sqLiteDatabase.delete("film_like", "Nom=?", new String[]{nom_film});
-
-
-
-            Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_like WHERE Nom = '" + nom_film + "';", null);
-            if(cursor.getCount()>=1){
-                Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films dislikés...", Toast.LENGTH_SHORT).show();
-            }
         }
         if(nom_page == "Films déjà vus"){
-
+            dbDejavu = new DBDejaVu(view.getContext());
+            sqLiteDatabase = dbDejavu.getReadableDatabase();
+            sqLiteDatabase.delete("film_dejavu", "Nom=?", new String[]{nom_film});
         }
         if(nom_page == "Films pas aimés"){
-
+            dbDislike = new DBDislike(view.getContext());
+            sqLiteDatabase = dbDislike.getReadableDatabase();
+            sqLiteDatabase.delete("film_dislike", "Nom=?", new String[]{nom_film});
         }
         else {
 
@@ -278,6 +315,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
     public void activate_dejavu(boolean activate_dejavu) {
         this.activate_dejavu = activate_dejavu;
+        notifyDataSetChanged(); //need to call it for the child views to be re-created with buttons.
+    }
+    public void activate_supprimer(boolean activate_supprimer) {
+        this.activate_supprimer = activate_supprimer;
         notifyDataSetChanged(); //need to call it for the child views to be re-created with buttons.
     }
 }
