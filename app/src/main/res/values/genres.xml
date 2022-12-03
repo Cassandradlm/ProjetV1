@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="genres">
+        <item>Action</item>
+        <item>Anime</item>
+        <item>Horreur</item>
+
+        <item>Documentaire</item>
+        <item>Fantastique</item>
+        <item>Comedie</item>
+
+        <item>Français</item>
+        <item>Thriller</item>
+        <item>Science-fiction</item>
+
+        <item>Jeunesse</item>
+        <item>Policier</item>
+        <item>Noël</item>
+        <item>Romance</item>
+    </string-array>
+</resources>

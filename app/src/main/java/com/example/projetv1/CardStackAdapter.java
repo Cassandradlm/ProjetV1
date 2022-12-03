@@ -172,7 +172,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
                     duree_list.get(pos).toString(),
                     annee_list.get(pos).toString(),
                     affichenoglide_list.get(pos).toString());
-            Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -195,7 +194,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
                     duree_list.get(pos).toString(),
                     annee_list.get(pos).toString(),
                     affichenoglide_list.get(pos).toString());
-            Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -218,7 +216,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
                     duree_list.get(pos).toString(),
                     annee_list.get(pos).toString(),
                     affichenoglide_list.get(pos).toString());
-            Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
         }
     }
 
