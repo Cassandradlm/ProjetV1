@@ -161,7 +161,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         String nom = titre_list.get(pos).toString();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_like WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
-            Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films likés...", Toast.LENGTH_SHORT).show();
+
         }
         else{
             dbLike.addNewLike(
@@ -184,7 +184,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         String nom = titre_list.get(pos).toString();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dislike WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
-            Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films likés...", Toast.LENGTH_SHORT).show();
+
         }
         else{
             dbDislike.addNewDislike(
@@ -207,7 +207,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         String nom = titre_list.get(pos).toString();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dejavu WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
-            Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films likés...", Toast.LENGTH_SHORT).show();
+
         }
         else{
             dbDejaVu.addNewDejaVu(
