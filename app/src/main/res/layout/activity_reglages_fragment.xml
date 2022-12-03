@@ -22,19 +22,6 @@
             android:scrollbars="vertical">
 
             <TextView
-                android:id="@+id/T_ajoutduree2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Durée"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutannee2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.523"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutcategorie" />
-
-            <TextView
                 android:id="@+id/title_setting_text"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -78,173 +65,165 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
-                android:id="@+id/button_ajoutfilm"
+                android:id="@+id/button_ajoutfilm_bdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ajout du film à la base de données"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Ajouter le film à la base de données"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.527"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.927" />
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/T_ajouttitre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Titre du film :"
+                android:layout_marginTop="24dp"
+                android:text="Titre du film"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutcategorie"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajouttitre2"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.692" />
+                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/button_maj_bdd"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd" />
 
             <TextView
                 android:id="@+id/T_ajoutcategorie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Catégorie du film :"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutduree"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajoutcategorie2"
-                app:layout_constraintHorizontal_bias="0.592"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.787" />
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
             <TextView
                 android:id="@+id/T_ajoutduree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Durée du film :"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutannee"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajoutduree2"
-                app:layout_constraintHorizontal_bias="0.505"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.84" />
+                app:layout_constraintEnd_toEndOf="@+id/spinner"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/spinner"
+                app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
             <TextView
                 android:id="@+id/T_ajoutannee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Année du film :"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutdescription"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajoutannee2"
-                app:layout_constraintHorizontal_bias="0.567"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.87" />
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumber"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
             <TextView
                 android:id="@+id/T_ajoutdescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Description du film :"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutimage"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajoutdescription2"
-                app:layout_constraintHorizontal_bias="0.714"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.897" />
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumber2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumber2"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
 
             <TextView
                 android:id="@+id/T_ajoutimage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="URL de l'affiche du film :"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/button_ajoutfilm"
-                app:layout_constraintEnd_toStartOf="@+id/T_ajoutimage2"
-                app:layout_constraintHorizontal_bias="0.6"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.733" />
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
 
-            <TextView
-                android:id="@+id/T_ajouttitre2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Titre"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutcategorie"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.464"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.685" />
-
-            <TextView
-                android:id="@+id/T_ajoutcategorie2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Catégorie"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutduree2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.608"
-                app:layout_constraintStart_toStartOf="parent"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="ex : Interstellar"
+                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
+                app:layout_constraintStart_toStartOf="@+id/T_ajouttitre"
                 app:layout_constraintTop_toBottomOf="@+id/T_ajouttitre" />
 
-            <TextView
-                android:id="@+id/T_ajoutannee2"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Année"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutdescription2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.519"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutcategorie" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="ex : 120"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="@+id/spinner"
+                app:layout_constraintStart_toStartOf="@+id/spinner"
                 app:layout_constraintTop_toBottomOf="@+id/T_ajoutduree" />
 
-            <TextView
-                android:id="@+id/T_ajoutdescription2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextNumber2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Description"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/T_ajoutimage2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.63"
-                app:layout_constraintStart_toStartOf="parent"
+                android:ems="10"
+                android:text="ex : 2012"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumber"
                 app:layout_constraintTop_toBottomOf="@+id/T_ajoutannee" />
 
-            <TextView
-                android:id="@+id/T_ajoutimage2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="URL affiche"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/button_ajoutfilm"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.751"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutdescription"
-                app:layout_constraintVertical_bias="0.206" />
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="ex : C'était l'histoire d'une petite fille..."
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumber2"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumber2"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutdescription" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="https://www.allocine.fr/maphoto.png"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+                app:layout_constraintTop_toBottomOf="@+id/T_ajoutimage" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
