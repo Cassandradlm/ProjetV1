@@ -108,11 +108,11 @@ public class RechercheFragment extends Fragment {
         sqLiteDatabase = db.getReadableDatabase();
         String query;
         if(search ==""){
-            query = "SELECT * FROM mycourses ;";
+            query = "SELECT * FROM mycourses ORDER BY RANDOM();";
         }
         else{
             query = "SELECT * FROM mycourses"+
-                    " WHERE Nom LIKE '%" + search + "%' OR Categorie LIKE '%"+  search +"%';";
+                    " WHERE Nom LIKE '%" + search + "%' OR Categorie LIKE '%"+  search +"%' ORDER BY RANDOM();";
         }
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 

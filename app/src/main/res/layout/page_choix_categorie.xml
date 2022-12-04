@@ -10,15 +10,15 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="410dp"
-        android:layout_height="542dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/button_cparti"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/T_categorie">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -37,9 +37,8 @@
                     android:layout_width="155dp"
                     android:layout_height="175dp"
                     android:layout_margin="10dp"
-                    android:background="#FFFFFF"
                     android:clickable="true"
-                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,9 +50,12 @@
                             android:id="@+id/I_all"
                             android:layout_width="135dp"
                             android:layout_height="128dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:srcCompat="@drawable/all" />
+                            android:src="@drawable/all"
+                            app:layout_constraintBottom_toTopOf="@+id/T_all"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/T_all"
@@ -95,7 +97,7 @@
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/action" />
+                            android:src="@drawable/action" />
 
                         <TextView
                             android:id="@+id/T_action"
@@ -148,7 +150,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/anime" />
+                            android:src="@drawable/anime" />
 
                         <TextView
                             android:id="@+id/T_anime"
@@ -191,7 +193,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/comedie" />
+                            android:src="@drawable/comedie" />
 
                         <TextView
                             android:id="@+id/T_comedie"
@@ -243,7 +245,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/documentaire" />
+                            android:src="@drawable/documentaire" />
 
                         <TextView
                             android:id="@+id/T_documentaire"
@@ -283,7 +285,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/drame" />
+                            android:src="@drawable/drame" />
 
                         <TextView
                             android:id="@+id/T_drame"
@@ -336,7 +338,7 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/fantastique" />
+                            android:src="@drawable/fantastique" />
 
                         <TextView
                             android:id="@+id/T_fantastique"
@@ -376,7 +378,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/francais" />
+                            android:src="@drawable/francais" />
 
                         <TextView
                             android:id="@+id/T_francais"
@@ -428,7 +430,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/horreur" />
+                            android:src="@drawable/horreur" />
 
                         <TextView
                             android:id="@+id/T_horreur"
@@ -467,7 +469,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/jeunesse" />
+                            android:src="@drawable/jeunesse" />
 
                         <TextView
                             android:id="@+id/T_jeunesse"
@@ -519,7 +521,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/noel" />
+                            android:src="@drawable/noel" />
 
                         <TextView
                             android:id="@+id/T_noel"
@@ -559,7 +561,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/policier" />
+                            android:src="@drawable/policier" />
 
                         <TextView
                             android:id="@+id/T_policier"
@@ -610,7 +612,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/romance" />
+                            android:src="@drawable/romance" />
 
                         <TextView
                             android:id="@+id/T_romance"
@@ -650,7 +652,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/scienfiction" />
+                            android:src="@drawable/scienfiction" />
 
                         <TextView
                             android:id="@+id/T_sciencefiction"
@@ -675,7 +677,7 @@
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:background="#E43E3E"
+                android:background="@color/purple_500"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp">
@@ -702,7 +704,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@drawable/thriller" />
+                            android:src="@drawable/thriller" />
 
                         <TextView
                             android:id="@+id/T_thriller"

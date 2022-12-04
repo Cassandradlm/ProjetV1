@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -45,29 +46,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.page_navigation);
-
         Context mContext = this.getApplicationContext();
 
         mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
-        mPrefs.getString("page", "Top");
 
-        if(MainActivity.getFirstRun()) {
-            getListItems();
-            ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Chargement des données");
-            progressDialog.setMessage("Veuillez patienter...");
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.create();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    setRunned();
-                    progressDialog.dismiss();
-                }
-            },5000);
-            }
-        else { }
+        setContentView(R.layout.page_navigation);
+
+        mPrefs.getString("page", "Top");
 
         navigationView = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new TirageFragment()).commit();
@@ -133,15 +118,20 @@ public class MainActivity extends AppCompatActivity {
     private void afficheReglages(){
         ImageButton bouton_fermer_r;
         Button maj_bdd;
+        Button modif_categorie;
+        Button ajouter_film;
 
         dialogBuilder = new AlertDialog.Builder(this);
         final View ReglagesView = LayoutInflater.from(this).inflate(R.layout.activity_reglages_fragment,null);
         dialogBuilder.setView(ReglagesView);
         dialog = dialogBuilder.create();
+        dialog.setCancelable(false);
         dialog.show();
 
         bouton_fermer_r = ReglagesView.findViewById(R.id.fermer_reglages);
         maj_bdd = ReglagesView.findViewById(R.id.button_maj_bdd);
+        modif_categorie = ReglagesView.findViewById(R.id.modif_categories);
+        ajouter_film = ReglagesView.findViewById(R.id.button_ajoutfilm_bdd);
 
         bouton_fermer_r.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +141,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getListItems();
+            }
+        });
+        modif_categorie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Choix_categorie.class));
+                finish();
+            }
+        });
+        ajouter_film.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
@@ -188,15 +191,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static boolean getFirstRun() {
-        return mPrefs.getBoolean("firstRun", true);
-    }
-
-    public static void setRunned() {
-        SharedPreferences.Editor edit = mPrefs.edit();
-        edit.putBoolean("firstRun", false);
-        edit.commit();
-    }
     public static String getPage(){
         return mPrefs.getString("page","");
     }

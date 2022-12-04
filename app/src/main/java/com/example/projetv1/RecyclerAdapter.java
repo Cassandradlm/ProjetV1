@@ -71,7 +71,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return titre_list.size();
+        if(titre_list != null){
+            return titre_list.size();
+        }
+        else{
+            return 0;
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -114,7 +119,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View view) {
                     dbLike = new DBLike(view.getContext());
                     sqLiteDatabase = dbLike.getReadableDatabase();
-                    String nom = titre.getText().toString();
+                    String nom = titre.getText().toString().replace("'","''");
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_like WHERE Nom = '" + nom + "';", null);
                     if(cursor.getCount()>=1){
                         Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films likés...", Toast.LENGTH_SHORT).show();
@@ -153,7 +158,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View view) {
                     dbDejavu = new DBDejaVu(view.getContext());
                     sqLiteDatabase = dbDejavu.getReadableDatabase();
-                    String nom = titre.getText().toString();
+                    String nom = titre.getText().toString().replace("'","''");
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dejavu WHERE Nom = '" + nom + "';", null);
                     if(cursor.getCount()>=1){
                         Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films déjà vus...", Toast.LENGTH_SHORT).show();
@@ -177,7 +182,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View view) {
                     dbDislike = new DBDislike(view.getContext());
                     sqLiteDatabase = dbDislike.getReadableDatabase();
-                    String nom = titre.getText().toString();
+                    String nom = titre.getText().toString().replace("'","''");
                     Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dislike WHERE Nom = '" + nom + "';", null);
                     if(cursor.getCount()>=1){
                         Toast.makeText(view.getContext(), "Le film est déjà présent dans la liste des films dislikés...", Toast.LENGTH_SHORT).show();

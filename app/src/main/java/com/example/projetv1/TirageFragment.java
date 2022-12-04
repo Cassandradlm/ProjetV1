@@ -35,7 +35,7 @@ public class TirageFragment extends Fragment {
 
     ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
-    DBAll db;
+    DBSuggestion dbSuggestion;
     DBLike dbLike;
     DBDislike dbDislike;
     DBDejaVu dbDejaVu;
@@ -85,19 +85,19 @@ public class TirageFragment extends Fragment {
             public void onCardSwiped(Direction direction) {
                 if (direction == Direction.Right){
                     adapter.ajouter_film_aime(view, pos);
-                    //adapter.supprimer(view, pos);
+                    adapter.supprimer(view, pos);
                 }
                 if (direction == Direction.Top){
                     adapter.ajouter_film_vu(view, pos);
-                    //adapter.supprimer(view, pos);
+                    adapter.supprimer(view, pos);
                 }
                 if (direction == Direction.Left){
                     adapter.ajouter_film_pas_aime(view, pos);
-                    //adapter.supprimer(view, pos);
+                    adapter.supprimer(view, pos);
                 }
                 if (direction == Direction.Bottom){
                     adapter.ajouter_film_vu(view, pos);
-                    //adapter.supprimer(view, pos);
+                    adapter.supprimer(view, pos);
                 }
             }
 
@@ -138,13 +138,13 @@ public class TirageFragment extends Fragment {
     }
 
     private void addList() {
-        db = new DBAll(getContext());
+        dbSuggestion = new DBSuggestion(getContext());
 
-        sqLiteDatabase = db.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses ORDER BY id desc", null);
+        sqLiteDatabase = dbSuggestion.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_suggestion ORDER BY RANDOM()", null);
 
         if (cursor.getCount() == 0) {
-            Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Il n'y a plus de films à suggérer", Toast.LENGTH_SHORT).show();
             return;
         } else {
             titre_list = new ArrayList<String>();

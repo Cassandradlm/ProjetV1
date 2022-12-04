@@ -65,6 +65,19 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
+                android:id="@+id/modif_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Modifier mes catégories de suggestion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/button_maj_bdd"
+                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
                 android:id="@+id/button_ajoutfilm_bdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +95,7 @@
                 android:id="@+id/T_ajouttitre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Titre du film"
                 android:textColor="@color/purple_700"
                 android:textSize="16sp"
@@ -90,7 +103,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/button_maj_bdd"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd" />
+                app:layout_constraintTop_toBottomOf="@+id/modif_categories" />
 
             <TextView
                 android:id="@+id/T_ajoutcategorie"

@@ -85,9 +85,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
             duree.setText(duree_s);
             affichenoglide.setText(affiche_s);
         }
-
-
-
     }
 
     @NonNull
@@ -112,7 +109,12 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
 
     @Override
     public int getItemCount() {
-        return titre_list.size();
+        if(titre_list != null){
+            return titre_list.size();
+        }
+        else{
+            return 0;
+        }
     }
 
     public void afficheDescription(String titre, String description, String categorie,String affiche,String duree,String annee, View view){
@@ -158,7 +160,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
 
         Log.d("AJOUT","AJOUTT");
 
-        String nom = titre_list.get(pos).toString();
+        String nom = titre_list.get(pos).toString().replace("'", "''");
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_like WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
 
@@ -180,7 +182,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         dbDislike = new DBDislike(view.getContext());
         sqLiteDatabase = dbDislike.getReadableDatabase();
 
-        String nom = titre_list.get(pos).toString();
+        String nom = titre_list.get(pos).toString().replace("'","''");
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dislike WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
 
@@ -202,7 +204,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         dbDejaVu = new DBDejaVu(view.getContext());
         sqLiteDatabase = dbDejaVu.getReadableDatabase();
 
-        String nom = titre_list.get(pos).toString();
+        String nom = titre_list.get(pos).toString().replace("'","''");
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Nom from film_dejavu WHERE Nom = '" + nom + "';", null);
         if(cursor.getCount()>=1){
 

@@ -82,7 +82,7 @@ public class DislikeFragment extends Fragment {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_dislike ORDER BY id desc", null);
 
         if(cursor.getCount()==0){
-            Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "La liste des films pas aimés est vide", Toast.LENGTH_SHORT).show();
             return;
         }
         else{

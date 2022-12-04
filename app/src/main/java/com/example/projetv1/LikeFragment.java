@@ -85,7 +85,7 @@ public class LikeFragment extends Fragment {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_like ORDER BY id desc", null);
 
         if(cursor.getCount()==0){
-            Toast.makeText(getContext(), "No entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "La liste des films aimés est vide", Toast.LENGTH_SHORT).show();
             return;
         }
         else{
@@ -107,5 +107,6 @@ public class LikeFragment extends Fragment {
                 affichenoglide_list.add(cursor.getString(7));
             }
         }
-    }}
+    }
+}
 
