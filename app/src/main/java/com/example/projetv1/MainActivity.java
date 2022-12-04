@@ -30,6 +30,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -166,13 +168,13 @@ public class MainActivity extends AppCompatActivity {
         ajouter_film.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Map<String, String> film = new HashMap<>();
-                film.put("Nom", titre.getText().toString());
-                film.put("Categorie", categorie.getSelectedItem().toString());
-                film.put("Annee", annee.getText().toString());
-                film.put("Duree", duree.getText().toString());
-                film.put("Description", desciption.getText().toString());
-                film.put("Affiche", url_affiche.getText().toString());
+                Class_Film film = new Class_Film();
+                film.setNom(titre.getText().toString());
+                film.setCategorie(categorie.getSelectedItem().toString());
+                film.setAnnee(Integer.valueOf(annee.getText().toString()));
+                film.setDuree(Integer.valueOf(duree.getText().toString()));
+                film.setDescription(desciption.getText().toString());
+                film.setAffiche(url_affiche.getText().toString());
 
                 db.collection("ProjetAndroid")
                         .add(film)
