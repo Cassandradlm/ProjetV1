@@ -83,7 +83,7 @@ public class DejaVuFragment extends Fragment {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from film_dejavu ORDER BY id desc", null);
 
         if(cursor.getCount()==0){
-            Toast.makeText(getContext(), "Pas de films dans cette liste !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "La liste des films déjà vus est vide", Toast.LENGTH_SHORT).show();
             return;
         }
         else{

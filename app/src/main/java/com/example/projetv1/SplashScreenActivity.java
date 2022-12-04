@@ -37,11 +37,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
+        mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
-
                 if(getFirstRun()) {
                     getListItems();
                     ProgressDialog progressDialog = new ProgressDialog(mContext);
@@ -49,12 +49,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                     progressDialog.setMessage("Veuillez patienter...");
                     progressDialog.setCanceledOnTouchOutside(false);
                     progressDialog.create();
+
                     startActivity(new Intent(SplashScreenActivity.this, Choix_categorie.class));
-                    finish();
                 }
                 else {
                     startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
-                    finish();
                 }
                 finish();
             }

@@ -7,28 +7,32 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     SQLiteDatabase db_sql;
     DBAll db_all;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,9 +155,47 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        EditText titre = ReglagesView.findViewById(R.id.editTextTextTitre);
+        Spinner categorie = ReglagesView.findViewById(R.id.SpinnerCategorie);
+        EditText duree = ReglagesView.findViewById(R.id.editTextDuree);
+        EditText annee = ReglagesView.findViewById(R.id.editTextAnnee);
+        EditText desciption = ReglagesView.findViewById(R.id.editTextDescription);
+        EditText url_affiche = ReglagesView.findViewById(R.id.editTextURL);
+
         ajouter_film.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                DocumentReference newNoteRef = db.collection("ProjetAndroid").document();
+
+                Class_Film film = new Class_Film();
+                film.setNom(titre.getText().toString());
+                film.setCategorie(categorie.getSelectedItem().toString());
+                film.setAnnee(Integer.valueOf(annee.getText().toString()));
+                film.setDuree(Integer.valueOf(duree.getText().toString()));
+                film.setDescription(desciption.getText().toString());
+                film.setAffiche(url_affiche.getText().toString());
+
+                db.collection("ProjetAndroid")
+                        .add(film)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                db_all = new DBAll(getApplicationContext());
+                                db_sql = db_all.getWritableDatabase();
+                                db_all.addNewCourse(
+                                        titre.getText().toString(),
+                                        desciption.getText().toString(),
+                                        categorie.getSelectedItem().toString(),
+                                        url_affiche.getText().toString(),
+                                        duree.getText().toString(),
+                                        annee.getText().toString(),
+                                        url_affiche.getText().toString());
+                                Toast.makeText(getApplicationContext(), "Le film a été rajouté", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                dialog.dismiss();
 
             }
         });
@@ -160,7 +203,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void getListItems() {
         ArrayList<Class_Film> film_list = new ArrayList<>();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db_all = new DBAll(this);
         db_sql = db_all.getWritableDatabase();
@@ -189,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
 
 
     public static String getPage(){

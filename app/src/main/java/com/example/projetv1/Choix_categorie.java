@@ -179,7 +179,8 @@ public class Choix_categorie extends AppCompatActivity {
         findViewById(R.id.button_cparti).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                loadingDialog loadingDialog = new loadingDialog(Choix_categorie.this);
+                loadingDialog.startLoadingDialog();
                 if (list_categorie.contains("All")) {
                     recupdata_all();
                 }
@@ -193,10 +194,11 @@ public class Choix_categorie extends AppCompatActivity {
                     @Override
                     public void run() {
                         SplashScreenActivity.setRunned();
+                        loadingDialog.dismisDialog();
                         startActivity(new Intent(Choix_categorie.this, MainActivity.class));
                         finish();
                     }
-                },2000);
+                },5000);
             }
         });
     }
