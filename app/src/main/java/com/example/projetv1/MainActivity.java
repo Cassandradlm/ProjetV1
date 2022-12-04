@@ -166,16 +166,13 @@ public class MainActivity extends AppCompatActivity {
         ajouter_film.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                DocumentReference newNoteRef = db.collection("ProjetAndroid").document();
-
-                Class_Film film = new Class_Film();
-                film.setNom(titre.getText().toString());
-                film.setCategorie(categorie.getSelectedItem().toString());
-                film.setAnnee(Integer.valueOf(annee.getText().toString()));
-                film.setDuree(Integer.valueOf(duree.getText().toString()));
-                film.setDescription(desciption.getText().toString());
-                film.setAffiche(url_affiche.getText().toString());
+                Map<String, String> film = new HashMap<>();
+                film.put("Nom", titre.getText().toString());
+                film.put("Categorie", categorie.getSelectedItem().toString());
+                film.put("Annee", annee.getText().toString());
+                film.put("Duree", duree.getText().toString());
+                film.put("Description", desciption.getText().toString());
+                film.put("Affiche", url_affiche.getText().toString());
 
                 db.collection("ProjetAndroid")
                         .add(film)
@@ -196,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                 dialog.dismiss();
-
             }
         });
 

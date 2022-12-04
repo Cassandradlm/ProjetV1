@@ -8,60 +8,60 @@ public class Class_Film {
 
     }
 
-    public Class_Film(String nom, String description, String categorie, String affiche, int duree, int annee) {
-        Nom = nom;
-        Description = description;
-        Categorie = categorie;
-        Affiche = affiche;
-        Duree = duree;
-        Annee = annee;
+    public Class_Film(String Nom, String Description, String Categorie, String Affiche, int Duree, int Annee) {
+        this.Nom = Nom;
+        this.Description = Description;
+        this.Categorie = Categorie;
+        this.Affiche = Affiche;
+        this.Duree = Duree;
+        this.Annee = Annee;
     }
 
     public String getNom() {
         return Nom;
     }
 
-    public void setNom(String nom) {
-        Nom = nom;
+    public void setNom(String Nom) {
+        this.Nom = Nom;
     }
 
     public String getDescription() {
         return Description;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
     public String getCategorie() {
         return Categorie;
     }
 
-    public void setCategorie(String categorie) {
-        Categorie = categorie;
+    public void setCategorie(String Categorie) {
+        this.Categorie = Categorie;
     }
 
     public String getAffiche() {
         return Affiche;
     }
 
-    public void setAffiche(String affiche) {
-        Affiche = affiche;
+    public void setAffiche(String Affiche) {
+        this.Affiche = Affiche;
     }
 
     public int getDuree() {
         return Duree;
     }
 
-    public void setDuree(int duree) {
-        Duree = duree;
+    public void setDuree(int Duree) {
+        this.Duree = Duree;
     }
 
     public int getAnnee() {
         return Annee;
     }
 
-    public void setAnnee(int annee) {
-        Annee = annee;
+    public void setAnnee(int Annee) {
+        this.Annee = Annee;
     }
 }
