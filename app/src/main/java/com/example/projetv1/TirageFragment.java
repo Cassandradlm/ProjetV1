@@ -122,7 +122,12 @@ public class TirageFragment extends Fragment {
             }
         });
         manager.setStackFrom(StackFrom.None);
-        manager.setVisibleCount(3);
+        if (titre_list != null){
+            manager.setVisibleCount(titre_list.size());
+        }
+        else{
+            manager.setVisibleCount(3);
+        }
         manager.setTranslationInterval(8.0f);
         manager.setScaleInterval(0.95f);
         manager.setSwipeThreshold(0.3f);

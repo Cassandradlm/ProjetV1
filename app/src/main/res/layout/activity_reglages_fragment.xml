@@ -21,6 +21,163 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical">
 
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_setting_text">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/button_maj_bdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="Mettre à jour la base de données" />
+
+                    <Button
+                        android:id="@+id/modif_categories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:text="Modifier mes catégories de suggestion" />
+
+                    <TextView
+                        android:id="@+id/t_ajouttitre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="AJOUT D'UN FILM"
+                        android:textColor="@color/purple_700"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/T_ajouttitre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Titre du film"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextTextTitre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/T_ajoutcategorie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Catégorie du film"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/SpinnerCategorie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/genres" />
+
+                    <TextView
+                        android:id="@+id/T_ajoutannee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Année du film"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextAnnee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/T_ajoutduree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Durée du film (en minutes)"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextDuree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/T_ajoutdescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Description du film"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:inputType="textMultiLine" />
+
+                    <TextView
+                        android:id="@+id/T_ajoutimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="URL de l'affiche du film"
+                        android:textColor="@color/purple_700"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextURL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/button_ajoutfilm_bdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="Ajouter le film à la base de données" />
+                </LinearLayout>
+            </ScrollView>
+
             <TextView
                 android:id="@+id/title_setting_text"
                 android:layout_width="0dp"
@@ -37,7 +194,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/fermer_reglages"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
                 android:id="@+id/fermer_reglages"
@@ -50,194 +207,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/white" />
-
-            <Button
-                android:id="@+id/button_maj_bdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="Mettre à jour la base de données"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_setting_text"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                android:id="@+id/modif_categories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Modifier mes catégories de suggestion"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/button_maj_bdd"
-                app:layout_constraintTop_toBottomOf="@+id/button_maj_bdd"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                android:id="@+id/button_ajoutfilm_bdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Ajouter le film à la base de données"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/editTextURL"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/editTextURL"
-                app:layout_constraintTop_toBottomOf="@+id/editTextURL"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/T_ajouttitre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Titre du film"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/button_maj_bdd"
-                app:layout_constraintTop_toBottomOf="@+id/modif_categories" />
-
-            <TextView
-                android:id="@+id/T_ajoutcategorie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Catégorie du film"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextTitre"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextTitre"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextTitre" />
-
-            <TextView
-                android:id="@+id/T_ajoutduree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Durée du film (en minutes)"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/SpinnerCategorie"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/SpinnerCategorie"
-                app:layout_constraintTop_toBottomOf="@+id/SpinnerCategorie" />
-
-            <TextView
-                android:id="@+id/T_ajoutannee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Année du film"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/editTextDuree"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextDuree"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDuree" />
-
-            <TextView
-                android:id="@+id/T_ajoutdescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Description du film"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/editTextAnnee"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextAnnee"
-                app:layout_constraintTop_toBottomOf="@+id/editTextAnnee" />
-
-            <TextView
-                android:id="@+id/T_ajoutimage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="URL de l'affiche du film"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/editTextDescription"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextDescription"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
-
-            <EditText
-                android:id="@+id/editTextTextTitre"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/button_maj_bdd"
-                app:layout_constraintStart_toStartOf="@+id/T_ajouttitre"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajouttitre" />
-
-            <Spinner
-                android:id="@+id/SpinnerCategorie"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:entries="@array/genres"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextTitre"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextTitre"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutcategorie" />
-
-            <EditText
-                android:id="@+id/editTextDuree"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/SpinnerCategorie"
-                app:layout_constraintStart_toStartOf="@+id/SpinnerCategorie"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutduree" />
-
-            <EditText
-                android:id="@+id/editTextAnnee"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextDuree"
-                app:layout_constraintStart_toStartOf="@+id/editTextDuree"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutannee" />
-
-            <EditText
-                android:id="@+id/editTextDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextAnnee"
-                app:layout_constraintStart_toStartOf="@+id/editTextAnnee"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutdescription" />
-
-            <EditText
-                android:id="@+id/editTextURL"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextDescription"
-                app:layout_constraintStart_toStartOf="@+id/editTextDescription"
-                app:layout_constraintTop_toBottomOf="@+id/T_ajoutimage" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

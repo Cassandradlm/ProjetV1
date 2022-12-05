@@ -1,6 +1,7 @@
 package com.example.projetv1;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,9 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -22,6 +25,9 @@ public class Choix_categorie extends AppCompatActivity {
     SQLiteDatabase sqLiteDatabase, sqLiteDatabase2;
     DBAll dbAll;
     DBSuggestion dbSuggestion;
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
 
 
     @Override
@@ -50,6 +56,20 @@ public class Choix_categorie extends AppCompatActivity {
 
         int white = getResources().getColor(R.color.white);
         int rose = getResources().getColor(R.color.rose);
+
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View DemarrageView = LayoutInflater.from(this).inflate(R.layout.page_premier_demarrage,null);
+        dialogBuilder.setView(DemarrageView);
+        dialog = dialogBuilder.create();
+        dialog.setCancelable(false);
+        dialog.show();
+
+        DemarrageView.findViewById(R.id.button_demarrer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         card_All.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -181,19 +201,28 @@ public class Choix_categorie extends AppCompatActivity {
             public void onClick(View view) {
                 loadingDialog loadingDialog = new loadingDialog(Choix_categorie.this);
                 loadingDialog.startLoadingDialog();
+
+                dbAll=new DBAll(getApplicationContext());
+                dbSuggestion=new DBSuggestion(getApplicationContext());
+                sqLiteDatabase = dbAll.getReadableDatabase();
+                sqLiteDatabase2 = dbSuggestion.getWritableDatabase();
+                dbSuggestion.onCreate(sqLiteDatabase2);
+
                 if (list_categorie.contains("All")) {
                     recupdata_all();
                 }
                 else{
-                    Log.d("TAILLE_LIST", String.valueOf(list_categorie.get(0)));
                     for(int i=0; i < list_categorie.size(); i++){
                         recupdata_categorie(list_categorie.get(i));
+                        Log.d("TAILLE_LIST", String.valueOf(list_categorie.get(i)));
                     }
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         SplashScreenActivity.setRunned();
+                        sqLiteDatabase.close();
+                        sqLiteDatabase2.close();
                         loadingDialog.dismisDialog();
                         startActivity(new Intent(Choix_categorie.this, MainActivity.class));
                         finish();
@@ -204,12 +233,6 @@ public class Choix_categorie extends AppCompatActivity {
     }
 
     public void recupdata_all() {
-        dbAll=new DBAll(this);
-        dbSuggestion=new DBSuggestion(this);
-
-        sqLiteDatabase = dbAll.getReadableDatabase();
-        sqLiteDatabase2 = dbSuggestion.getWritableDatabase();
-        dbSuggestion.onCreate(sqLiteDatabase2);
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses", null);
 
         if(cursor.getCount()==0){
@@ -229,18 +252,14 @@ public class Choix_categorie extends AppCompatActivity {
                         cursor.getString(7));
             }
         }
+        sqLiteDatabase.close();
+        sqLiteDatabase2.close();
     }
 
-    public void recupdata_categorie(String categorie) {
-        dbAll=new DBAll(this);
-        dbSuggestion=new DBSuggestion(this);
+    public void recupdata_categorie(@NonNull String categorie) {
 
-        sqLiteDatabase = dbAll.getReadableDatabase();
-        sqLiteDatabase2 = dbSuggestion.getWritableDatabase();
-        dbSuggestion.onCreate(sqLiteDatabase2);
         categorie.replace("'","''");
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from mycourses WHERE Categorie LIKE '" + categorie + "';", null);
-
         if(cursor.getCount()==0){
             Toast.makeText(this, "No entry", Toast.LENGTH_SHORT).show();
             return;

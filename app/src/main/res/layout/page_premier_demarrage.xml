@@ -8,16 +8,21 @@
     android:backgroundTint="#A4161A">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="319dp"
         android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#660708"
         app:cardCornerRadius="20dp"
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="40dp">
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="303dp"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/T_bienvenue"
@@ -26,34 +31,51 @@
                 android:text="Bienvenue !"
                 android:textColor="#FFFFFF"
                 android:textSize="34sp"
-                tools:layout_editor_absoluteX="79dp"
-                tools:layout_editor_absoluteY="2dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="375dp"
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
         android:layout_height="505dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="20dp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="125dp">
+        app:layout_constraintBottom_toTopOf="@+id/button_demarrer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="504dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/T_explication"
-                android:layout_width="353dp"
-                android:layout_height="483dp"
-                android:text="Bienvenue sur Filmify ! \n\nCette application va vous aider à choisir un film à regarder.\n\nVous allez être amené à choisir les catégories de film qui vous intéressent. \n\nUne liste de film vous sera ensuite proposer. Vous pourrez lire le résumé et les différentes informations du film. \n\nVous pourrez enregistrer les films dans vos listes de films aimés, déjà vus ou que vous ne souhaitez pas regarder.\n\nUn mene vous permettra de retrouver ces différentes listes. \n\nA vous de jouer !"
-                android:textColor="#161A1D"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="12dp"
-                tools:layout_editor_absoluteY="14dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/T_explication"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Bienvenue sur Filmify ! \n\nCette application va vous aider à choisir un film à regarder.\n\nVous allez être amené à choisir les catégories de film qui vous intéressent. \n\nVous aimez ? Swipe à droite !\nVous n'aimez pas ? Swipe à gauche !\nVous l'avez déjà vu ? Swipe en haut ou en bas !\nVous voulez en savoir plus ? Cliquez sur le nom du film ! \n\nEn fontion de vos choix les film vont être rajoutés dans leur liste réspéctives.\n\nVous pouvez aussi visiter la page de recherche des films et en rajouter manuellement !\n\nEt dernier petit cadeau : en allant sur la page des réglages, vous pouvez rajouter vous même des films et en faire profiter à toute la communauté !\n\nA vous de jouer !"
+                    android:textColor="#161A1D"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
 
@@ -61,9 +83,12 @@
         android:id="@+id/button_demarrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:backgroundTint="#660708"
         android:text="Démarrer"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="658dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

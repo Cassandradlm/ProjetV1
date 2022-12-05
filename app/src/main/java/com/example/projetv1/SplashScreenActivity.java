@@ -27,8 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     DBAll db_all;
     static SharedPreferences mPrefs;
 
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +88,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                     String.valueOf(film_list.get(i).getAffiche()));
                             Log.d("ADD", "Adding movie : "+film_list.get(i).getNom());
                         }
+                        db_sql.close();
                     }
                 });
     }

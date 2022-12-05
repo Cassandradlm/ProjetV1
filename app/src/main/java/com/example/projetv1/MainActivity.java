@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -148,12 +149,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getListItems();
+                loadingDialog loadingDialog = new loadingDialog(MainActivity.this);
+                loadingDialog.startLoadingDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismisDialog();
+                        dialog.dismiss();
+                    }
+                },5000);
+
             }
         });
         modif_categorie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Choix_categorie.class));
+                dialog.dismiss();
                 finish();
             }
         });
@@ -191,8 +203,10 @@ public class MainActivity extends AppCompatActivity {
                                         duree.getText().toString(),
                                         annee.getText().toString(),
                                         url_affiche.getText().toString());
+                                db_sql.close();
                                 Toast.makeText(getApplicationContext(), "Le film a été rajouté", Toast.LENGTH_SHORT).show();
                             }
+
                         });
                 dialog.dismiss();
             }
@@ -226,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
                                     String.valueOf(film_list.get(i).getAffiche()));
                             Log.d("ADD", "Adding movie : "+film_list.get(i).getNom());
                         }
+                        db_sql.close();
                     }
                 });
     }
