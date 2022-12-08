@@ -235,4 +235,15 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         affichenoglide_list.remove(pos);
         notifyDataSetChanged();
     }
+
+    public void pass(View view, int pos){
+        titre_list.remove(pos);
+        description_list.remove(pos);
+        categorie_list.remove(pos);
+        affiche_list.remove(pos);
+        duree_list.remove(pos);
+        annee_list.remove(pos);
+        affichenoglide_list.remove(pos);
+        notifyDataSetChanged();
+    }
 }
