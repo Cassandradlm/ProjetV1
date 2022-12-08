@@ -112,8 +112,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="right"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
@@ -128,8 +128,8 @@
 
         <ImageView
             android:src="@drawable/ic_baseline_thumb_up_24"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:layout_gravity="left"/>
@@ -141,14 +141,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_baseline_remove_red_eye_24"
-            android:layout_gravity="center"/>
-
     </FrameLayout>
 
     <FrameLayout
@@ -157,8 +149,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_remove_red_eye_24"

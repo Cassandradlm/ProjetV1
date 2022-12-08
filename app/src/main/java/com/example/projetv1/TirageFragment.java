@@ -88,8 +88,6 @@ public class TirageFragment extends Fragment {
                     adapter.supprimer(view, pos);
                 }
                 if (direction == Direction.Top){
-                    adapter.ajouter_film_vu(view, pos);
-                    adapter.supprimer(view, pos);
                 }
                 if (direction == Direction.Left){
                     adapter.ajouter_film_pas_aime(view, pos);
