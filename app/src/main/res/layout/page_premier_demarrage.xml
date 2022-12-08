@@ -74,6 +74,7 @@
                     android:text="Bienvenue sur Filmify ! \n\nCette application va vous aider à choisir un film à regarder.\n\nVous allez être amené à choisir les catégories de film qui vous intéressent. \n\nVous aimez ? Swipez à droite !\nVous n'aimez pas ? Swipez à gauche !\nVous l'avez déjà vu ? Swipez en haut ou en bas !\nVous voulez en savoir plus ? Cliquez sur le nom du film ! \n\nEn fonction de vos choix les film vont être rajoutés dans leur liste respéctive.\n\nVous pouvez aussi visiter la page de recherche des films et en rajouter manuellement !\n\nEt dernier petit cadeau : en allant sur la page des réglages, vous pouvez rajouter vous même des films et en faire profiter à toute la communauté !\n\nA vous de jouer !"
                     android:textColor="#161A1D"
                     android:textSize="20sp" />
+
             </LinearLayout>
         </ScrollView>
 
