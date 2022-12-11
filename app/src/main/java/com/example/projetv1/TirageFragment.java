@@ -36,9 +36,6 @@ public class TirageFragment extends Fragment {
     ArrayList<String> titre_list, annee_list, categorie_list, description_list, duree_list, affiche_list, affichenoglide_list;
     SQLiteDatabase sqLiteDatabase;
     DBSuggestion dbSuggestion;
-    DBLike dbLike;
-    DBDislike dbDislike;
-    DBDejaVu dbDejaVu;
 
     private CardStackLayoutManager manager;
     private CardStackAdapter adapter;
