@@ -148,6 +148,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         else{
                             Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
                         }
+                        sqLiteDatabase.close();
                     }
 
                 }
@@ -174,6 +175,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                                 affichenoglide.getText().toString());
                         Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
                     }
+                    sqLiteDatabase.close();
                 }
             });
 
@@ -212,6 +214,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         else{
                             Toast.makeText(view.getContext(), "Film ajouté !", Toast.LENGTH_SHORT).show();
                         }
+                        sqLiteDatabase.close();
                     }
                 }
             });
